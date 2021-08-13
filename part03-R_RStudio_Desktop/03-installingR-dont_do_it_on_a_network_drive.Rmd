@@ -1,0 +1,21 @@
+# A note before you start - make sure you're not in OneDrive or another network folder! {#onedrivebad}
+
+
+Depending on your computer, your operating system, and you're recent download history, things will download into different places.  Some machines may download programs like R to some kind of network or cloud drive, just as OneDrive.  Make sure you are downloading to your actual hard drive such as the "Downloads" folder.  The same goes for when you are installing software.
+
+If prompted, make sure you're not in OneDrive or another network drive, or check where the download is going.  For example,  on a Mac I can check where something is downloaded to by clicking on the little down arrow next to the downloaded file and then  "Show in Finder."
+
+
+ 
+
+```{r, echo = F}
+knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Microsoft_Office_OneDrive_%282019%E2%80%93present%29.svg/320px-Microsoft_Office_OneDrive_%282019%E2%80%93present%29.svg.png")
+```
+
+
+
+<!-- has image -->
+<!-- https://canvas.pitt.edu/courses/45284/pages/a-note-before-you-start-make-sure-youre-not-in-onedrive-or-another-network-folder?module_item_id=1531927f -->
+
+<!-- image source -->
+<!-- https://docs.google.com/presentation/d/11M2zaEuMItsYWRccCmZJjFUowaGYoglaGk1bXEpDpi0/edit#slide=id.p -->

@@ -1,0 +1,83 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+## Doing math for stats by hand
+
+```{r, echo = T}
+library(compbio4all)
+data(genes_hpc)
+```
+
+Put gene lengths in vector
+
+```{r}
+gene_lengths <- genes_hpc$length
+```
+
+
+Make  subset so that things can all be seeing on-screen
+Then do for whole vector
+Assignment: do for GC
+Follow up: data manipulation with dplyr: 
+1)2 groups: mt vs rest of genome
+2)3 groups: mt vs. regular vs. sex
+3)may groups: by chromosome number
+
+
+
+### Calculating the mean gene length by hand
+
+#### The numerator
+```{r}
+length.sum <- sum(gene_lengths)
+```
+
+### The denomintor
+```{r}
+N <- length(gene_lengths)
+
+```
+
+### The mean
+```{r}
+length_mean <- length.sum/N
+
+
+```
+
+
+Same thing to get the mean, just in 1 step
+```{r}
+ sum(gene_lengths)/length(gene_lengths)
+
+```
+
+
+
+
+We can check our answer like this using the "==" function which asks R "are these two objects EXACTLy the same?"
+
+```{r}
+length_mean == mean(gene_lengths)
+```
+
+
+
+
+We can do the same thing to check that the standard deviation is indeed the square root of the mean
+
+```{r}
+sd(gene_lengths) == sqrt(var(gene_lengths))
+```
+
+If the were not the same, R would say "FALSE"
+
+
+* Because R is very very very very precise any rounding errors will result in R saying that two things are NOT the same.  Sometimes some R functions do do some rounding so you have to check "FALSE" sometimes.
+
+
+

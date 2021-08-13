@@ -1,0 +1,26 @@
+# Troubleshooting basic problems
+
+Forgetting the second **closing parenthesis** is a major cause of mistakes when learning R.  If something doesn't work, press the **escape key** in the upper left-hand corner of your keyboards (labeled "esc" or "ESC") a couple of times, then first check to make sure you have the sneaky second `)`.  
+
+This is important so I'll repeat it:
+
+>**Forgetting the second parenthesis is a major cause of mistakes when learning R**.  If something doesn't work, press the **escape key** a couple of times, then first check to make sure you have both parantheses.  
+
+## Bad arguments
+
+None of these work
+
+
+```{r, eval = F, error = F}
+plot(lynx, log  = y)
+plot(lynx, log  = "y)
+plot(lynx, log  y)
+```
+<!-- ASSIGNMENT:Fix these errors -->
+
+## Hung code
+
+When we forget a closing parenthesis in R we get **hung code**.  We think we told R to do something, like make a plot, but nothing happens.
+
+
+## Missing quotes

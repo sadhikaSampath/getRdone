@@ -1,0 +1,122 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Appendix: RMarkdown 
+
+R code is typically distributed in two file formats
+
+* Plain-text R files (.R)
+* RMarkdown file (.Rmd)
+
+The native format of R is the .R file.  This is essentially a **plain-text** file that includes only R code and text that has been commented out.  Any text that isn't commented out is interpreted by R as R code.
+
+<!-- Insert image as example -->
+
+RMarkdown files also plain-text files that you can open in any text editor or even a word processor.  However, RMarkdown files are written very differently.  First, in RMarkdown code is written in specially flagged **code chunks**, while almost all descriptive text is written as you would normally write in a word processor, without any comments.  This allows you to write text fluidly as you would in a word processor without laboriously commenting everything out as you go.
+
+## Key features of RMarkdown: heading tags and code chunks:
+
+The two most prominent and important features of RMarkdown documents are the hashtags used for indicating section headings and code chunks.  
+
+## Code chunks
+
+### Code chunk tags
+
+Code chunks start with there apostrophes and {r}, like this: \`\`\`{r}.  They end with three apostrophes\`\`\`.  They will appear gray when opened up in RStudio but be white in the normal R code editor or other text editor.
+
+You can add comments within code chunks with a hashtag as you normally would.
+
+### Code chunk controls
+
+When a code chunk occurs in a .Rmd file RStudio will add three controls to the far-right side of the chunk
+
+1. A gear
+1. A downward pointing gray triangle above a green bar
+1. A rightward facing triangle
+
+The second two controls are very useful.  The triangle-bar button runs all the code that occurs into the .Rmd file up to the current point, while the rightward triangle runs the current chunk.
+
+<!-- Add images -->
+<!-- Make videos -->
+
+### Source viewer controls
+
+RMarkdown and regular .R files are displayed in the **source viewer** (aka **script editor**).  At the top of the source viewer are a number of buttons.  Most you can ignore for basic usage, but two are helpful:
+
+1. File save button ("ABC" above a check mark")
+1. Run this code (Green arrow pointing towards "Run")
+
+### Running code in code chunks
+
+<!-- Insert images -->
+
+Code in code chunks can be run several different ways.  First you need to indicate what code you want to run.  This is done either by:
+
+1. Placing the cursor at the end of the line you want to run
+1. Highlighting the code you want to run; this can be more than 1 line 
+
+Once you've selected the code you want to run you can tell RStudio to send the code over to the console to run it these ways:
+
+1. Click on the "Run" button at the top of the Source Viewer pane and select the first option, "Run selected lines".
+1. Click on the rightward facing button of the chunk where the code is located.
+
+
+### Running multiple chunks
+
+<!-- insert image -->
+
+You can also run multiple chunks.  Specifically, you can run all the code from the start of the file to your current position.  First, identify the code you want to run.  Second, click your cursor into the next chunk after that code.  All of the code preceding your current chunk can the be run by 
+
+1. Clicking on the Run icon above the editor and selecting "Run all chunks above".
+1. Clicking on the triangle-bar button within that chunk.
+
+A common problem when working with R scripts is that while reading code and comments you accidentally skip a  bit of code and things stop working.  The ability to run all previous code  This is a very useful way to make sure you've run the necessary code before proceeding further into a script.
+
+### Headers
+
+Titles and section headings are tagged with hashtags in RMarkdown.  Line of text preceded by one to four-ish hashtags are rendered in larger font and in some cases auto-numbered.
+
+\# Title
+
+\## Section heading
+
+\### Sub-section
+
+
+
+
+## Other key features of RMarkdown
+
+### The "YAML" Header
+
+<!-- Add image -->
+
+At the top of most Rmarkdown files are what is called the YAML header.   The header always begins with three dashes (---) and ends with three dashes. Keywords between these two sets of dashes  defines things like a title, author date, and other meta-data and controls.  The presence and contents of the YAML header vary depending on a number of factors; generally speaking don't touch anything except the title and author information.
+
+### Knitting
+
+RMarkdown files can be **knit** into HTML web pages, Word Documents, and -- given a bit of setup -- PDFs.  Click on the "Knit" button at top of the Source Viewer and select the desired format. 
+
+## Markdown syntax
+
+RMarkdown is a special implementation of a more general **markup language** called **markdown**.  markdown was created as a light-weight alternative to HTML for creating documents and web pages.  Within written text of RMarkdown documents you'll see various elements which create special formatting when the .RMd file is **rendered**.  These principally are
+
+1. Bold and italic font
+1. Bulleted and numbered lists 
+
+If you've been given a .Rmd file and need to run the code you can ignore anything that seems out of place like asterisks.  
+
+\*Italics\*  **Italics**
+
+\*\*Bold\*\*  **Bold**
+
+\_underlined\_ _underlined\
+
+superscript 2\^2\^  2^2^ 
+
+Other features you may encounter include full equations and short bits of HTML code.
+
+For a list of RMarkdown tags see the RStudio [RMarkdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) here: https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf
+

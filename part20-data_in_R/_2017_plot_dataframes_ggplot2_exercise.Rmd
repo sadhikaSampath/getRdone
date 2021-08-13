@@ -1,0 +1,510 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Introduction to ggplot and ggpubr
+
+
+##SeaIce
+
+
+```{r}
+library(Stat2Data)
+library(ggplot2)
+library(ggpubr)
+```
+
+```{r}
+data(SeaIce)
+```
+
+
+```{r}
+ggscatter(y = "Area",
+          x = "Year",
+          data = SeaIce)
+```
+
+
+```{r}
+ggscatter(y = "Area",
+          x = "Year",
+          color = "blue", #in quotes
+          data = SeaIce)
+```
+
+```{r}
+ggscatter(y = "Area",
+          x = "Year",
+          color = "blue",
+          shape = 16,     # not quotes
+          data = SeaIce)
+```
+
+
+```{r}
+ggscatter(y = "Area",
+          x = "Year",
+          color = "blue",
+          shape = 16,     # 
+          size = 4,       # not quotes
+          data = SeaIce)
+```
+
+```{r}
+ggscatter(y = "Area",
+          x = "Year",
+          color = "blue",
+          shape = 16,     # 
+          size = 4,       # 
+          ylab = "Area (square kilometers)", # in quotes
+          data = SeaIce)
+```
+
+## Regression line
+
+```{r}
+ggscatter(y = "Area",
+          x = "Year",
+          color = "blue",
+          shape = 16,     # 
+          size = 4,       # 
+          ylab = "Area (square kilometers)", 
+          add = "reg.line",
+          data = SeaIce)
+```
+
+
+```{r}
+ggscatter(y = "Area",
+          x = "Year",
+          color = "blue",
+          shape = 16,     # 
+          size = 4,       # 
+          ylab = "Area (square kilometers)", 
+          add = "reg.line",
+          data = SeaIce) +
+  stat_regline_equation()
+```
+
+
+
+Why is equation different
+
+```{r}
+ggscatter(y = "Area",
+          x = "t",
+          color = "blue",
+          shape = 16,     # 
+          size = 4,       # 
+          ylab = "Area (square kilometers)", 
+          add = "reg.line",
+          data = SeaIce) +
+  stat_regline_equation()
+```
+
+
+
+
+
+
+## Smoother
+
+```{r}
+ggscatter(y = "Area",
+          x = "Year",
+          color = "blue",
+          shape = 16,     # 
+          size = 4,       # 
+          ylab = "Area (square kilometers)", 
+          add = "loess",
+          data = SeaIce)
+```
+
+
+## correlation
+
+```{r}
+ggscatter(y = "Area",
+          x = "Year",
+          color = "blue",
+          shape = 16,     # 
+          size = 4,       # 
+          ylab = "Area (square kilometers)",  
+          cor.coef = T,
+          data = SeaIce)
+```
+
+
+
+## Long time series
+
+```{r}
+data(CO2Hawaii)
+```
+
+
+Year
+
+Why stacked?
+```{r}
+ggscatter(y = "CO2",
+       x = "Year",
+       data = CO2Hawaii)
+```
+
+```{r}
+ggscatter(y = "CO2",
+       x = "Year",
+       color = "Month",
+       data = CO2Hawaii)
+```
+
+What's different?
+```{r}
+ggscatter(y = "CO2",
+       x = "t",
+       color = "Month",
+       data = CO2Hawaii)
+```
+
+
+```{r}
+ggscatter(y = "CO2",
+       x = "t",
+       color = "Month",
+       add = "reg.line",
+       data = CO2Hawaii)
+```
+
+
+```{r}
+ggscatter(y = "CO2",
+       x = "t",
+       color = "Month",
+       add = "loess",
+       data = CO2Hawaii)
+```
+
+```
+
+
+```{r}
+ggscatter(y = "CO2",
+       x = "t",
+       color = "Month",
+       data = CO2Hawaii) +
+  xlim(0,100)
+```
+
+
+
+```{r}
+ggscatter(y = "CO2",
+       x = "t",
+       color = "Month",
+       data = CO2Hawaii) +
+  xlim(0,100) +
+  ylim(350,365)
+```
+
+
+```{r}
+ggscatter(y = "CO2",
+       x = "t",
+       color = "Month",
+       add = "reg.line",
+       data = CO2Hawaii) +
+  xlim(0,100) +
+  ylim(350,365)
+```
+
+```{r}
+ggscatter(y = "CO2",
+       x = "t",
+       color = "Month",
+       add = "loess",
+       data = CO2Hawaii) +
+  xlim(0,100) +
+  ylim(350,365)
+```
+
+
+
+##Moth data - 2 cities
+
+Cook and Grant 2000.  Frequency of insularia during the decline
+in melanics in the peppered.  Heredity 85: 580-585.
+
+
+Make dataframe
+
+##Nottingham data
+
+```{r}
+year.nottingham <- seq(from = 1993,
+                       to = 2000)
+carbonaria.nottingham <- c(58.5, 50.4, 38.5, 27.3, 28.9, 
+                           30.9, 19.2, 19)
+
+df.nottingham <- data.frame(year = year.nottingham,
+                            N.carbonaria = carbonaria.nottingham,
+                            city = "Nottingham")
+
+plot(N.carbonaria ~ year, data =  df.nottingham, type = "b")
+```
+
+How many times did R print "Nottingham" How did it make that choice?
+
+
+```{r}
+
+year.york <- seq(from = 1993,
+                 to = 2000)
+
+carbonaria.york <- c( 69.6, 60, 75.0, 51.4, 42.1,
+                      41.2, 37.0, 20.8)
+
+df.york <- data.frame(year = year.york,
+                      N.carbonaria = carbonaria.york,
+                      city = "York")
+
+plot(N.carbonaria ~ year, data =  df.york, type = "b")
+```
+
+
+
+```{r}
+df.moth <- rbind(df.nottingham,
+                 df.york)
+```
+
+
+
+```{r}
+is(df.moth)
+```
+
+
+```{r}
+dim(df.moth)
+```
+
+
+
+```{r}
+# install.packages("ggplot2")
+```
+
+
+```{r}
+library(ggplot2)
+library(ggpubr)
+```
+
+
+```{r}
+ggscatter(y = "N.carbonaria",   # in quotes
+          x = "year",           # in quotes
+          data = df.moth)       # in quotes
+```
+
+
+```{r}
+ggscatter(y = "N.carbonaria", 
+          x = "year",
+          color = "city",    # in quotes
+          data = df.moth)
+```
+
+```{r}
+ggscatter(y = "N.carbonaria",
+          x = "year",
+          color = "city",
+          shape = "city",     # in quotes
+          data = df.moth)
+```
+
+```{r}
+ggscatter(y = "N.carbonaria",
+          x = "year",
+          color = "city",
+          shape = "city",
+          size = 5,       # not in quotes!
+          data = df.moth)
+```
+
+
+
+```{r}
+ggscatter(y = "N.carbonaria",
+          x = "year",
+          color = "city",
+          shape = "city",
+          size = 5,       
+          data = df.moth,
+          ylab = "Number of carbonaria moths", # labels in quotes
+          xlab = "Year")   # in quotes
+```
+
+
+
+## Regression lines
+
+
+```{r}
+ggscatter(y = "N.carbonaria",
+          x = "year",
+          data = df.moth,
+          color = "city",
+          shape = "city",
+          add = "reg.line",
+          size = 5)
+```
+
+```{r}
+ggscatter(y = "N.carbonaria",
+          x = "year",
+          data = df.moth,
+          color = "city",
+          shape = "city",
+          add = "reg.line",
+          conf.int = T,
+          size = 5)
+```
+
+
+
+Only 1 line
+```{r}
+ggscatter(y = "N.carbonaria",
+          x = "year",
+          data = df.moth,
+          color = "city",
+          shape = "city",
+          add = "reg.line",
+          conf.int = T,
+          size = 5) +
+  stat_regline_equation()
+```
+
+
+
+Facetings - regressions for both lines
+```{r}
+ggscatter(y = "N.carbonaria",
+          x = "year",
+          data = df.moth,
+          color = "city",
+          shape = "city",
+          add = "reg.line",
+          conf.int = T,
+          facet.by = "city",
+          size = 5) +
+  stat_regline_equation()
+```
+
+
+
+## Correlations
+
+
+Only 1 correlations coeffient
+
+```{r}
+ggscatter(y = "N.carbonaria",
+          x = "year",
+          color = "city",
+          shape = "city",
+          size = 5,       
+          data = df.moth,
+          cor.coef = T,
+          ylab = "Number of carbonaria moths", # labels in quotes
+          xlab = "Year")   # in quotes
+```
+
+
+Faceting gives us 2
+```{r}
+ggscatter(y = "N.carbonaria",
+          x = "year",
+          color = "city",
+          shape = "city",
+          size = 5,       
+          data = df.moth,
+          cor.coef = T,
+          facet.by = "city",
+          ylab = "Number of carbonaria moths", # labels in quotes
+          xlab = "Year")   # in quotes
+```
+
+
+
+```{r}
+ggplot(data = df.moth,
+        aes(y = N.carbonaria,
+            x = year,
+            color = city)) +
+  geom_point() +
+  geom_line()
+```
+
+
+
+
+
+
+## Original data
+
+```{r}
+# Cook and Grant 2000.  Frequency of insularia during the decline
+# in melanics in the peppered.  Heredity 85: 580-585.
+year.nottingham <- seq(from = 1993,
+                       to = 2000)
+carbonaria.nottingham <- c(58.5, 50.4, 38.5, 27.3, 28.9, 
+                           30.9,19.2, 19)
+
+plot(carbonaria.nottingham ~ year.nottingham)
+
+
+year.york <- seq(from = 1990,
+                 to = 2000)
+
+carbonaria.york <- c(57.9, 61.8, 74.1, 69.6, 60, 75.0,
+                     51.4, 42.1, 41.2, 37.0, 20.8)
+
+plot(carbonaria.york ~ year.york)
+
+year.manchester <- c("1952-1964", "1968-1974", "1990-1998")
+carbonaria.manchester <- c(98.5,95.9,20.8)
+
+
+
+
+
+
+
+
+
+
+year.kent <- c(1971, 1975, 1979, 1983, 1987, 
+               1990, 1991, 1992, 1993, 1994)
+carbonaria.kent <- c(78.2, 76.6, 71.7, 64.7, 54.3, 
+                     42.3, 30.9, 33.5, 23.0, 23.8)
+plot(carbonaria.kent ~ year.kent)
+
+
+
+year.hampshire <- c("1957-1964","1965-1970","1973-1977")
+carbonaria.hampshire <- c(7.1,5.8,6.5)
+```
+
+
+
+Long time series
+
+insularia, not carboneria!
+
+Clarke, Mani and Wynne.  1985.  Evolution in reverse: clean air and the pepperred moth.
+Biological Journal of the Linnean Society 26: 189-199.

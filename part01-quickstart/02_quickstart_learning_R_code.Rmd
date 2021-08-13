@@ -1,0 +1,28 @@
+# Quickstart guide to learning R coding {#quickstartcode}
+
+Here’s an outline of key steps to get started learning to run commands and write code using freely available, interactutorials.
+ 
+1. Check out the RStudio Cloud Primers
+	+ The basics
+	+ Working with data
+1. Install the `swirl` package
+
+To install swirl, In the `R` console run these commands:
+```{r, eval = F}
+install.packages("swirl")
+library("swirl")
+```
+
+Then download these two tutorials
+```{r, eval = F}
+swirl::install_course("R Programming")
+swirl::install_course("The R Programming Environment")
+```
+
+To get started with `swirl` type:
+```{r, eval = F}
+swirl()
+```
+
+
+`swirl` will guide you through the rest.  Choose one of the R Programming tutorials. If you are asked for your Coursera information just skip this using the `skip()` command.

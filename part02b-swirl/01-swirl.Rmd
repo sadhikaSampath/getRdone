@@ -1,0 +1,109 @@
+# swirl
+
+
+swirl is a system for running tutorials within the R console.  R basically asks you questions and you type the answer.  Information about downloading and using swirl can be found here: https://swirlstats.com/students.html 
+
+
+
+
+## swirl quickstart:
+
+In the R console run these commands:
+
+To set everything up:
+```{r, eval = F}
+install.packages("swirl")
+library("swirl")
+swirl::install_course("R Programming")
+swirl::install_course("The R Programming Environment")
+```
+
+ To get started type:
+
+```{r, eval = F}
+swirl()
+```
+
+
+Swirl will guide you through the reset.  Choose one of the R Programming tutorials.
+
+A cheatsheet to swirl commands and other info can be found here:
+https://docs.google.com/presentation/d/12cNq9VYEUFzzzQkNmRF2PgllW05-tVqoEux26jfygWw/edit?usp=sharing
+
+
+
+
+## Installing Packages in RStudio & RStudio Cloud
+
+R has many packages (aka "libraries") that extend its functionality.  Installing these can be a bit confusing.  Watch this video for a brief overview.  If you need more information there are other videos on YouTube.
+
+Note: I go through this in RStudio Cloud, but it works the same way in regular RStudio.
+
+https://youtu.be/UaS1OVb89S8
+
+```{r, echo = F}
+knitr::include_url("https://youtu.be/UaS1OVb89S8")
+```
+
+
+## Getting to know swirl video
+
+In this video I explain exactly what's going on each step of the way as I work through a swirl tutorial ("Basic building blocks").  If what was happening during the swirl tutorial itself made sense then you probably don't need to watch the video.  If you were confused, watch this to see if it helps, pausing as needed to work on the tutorial.
+
+
+```{r, echo = F}
+knitr::include_url("https://youtu.be/WDh-huuqpno")
+```
+
+
+The key vocabulary, concepts and functions  covered in this tutorial are:
+* programming language
+* variable
+* `+`, `-`, `/`, and `^`
+* sqrt()
+* abs()
+* assignment operator
+* <-
+* help files
+* vector
+* c() function ("concatenate", "combine")
+* element wise operation ("element-by-element")
+* recycling
+* vectorized operations (not discussed in those terms)
+* up arrow to view command history
+* tab completion ("auto-completion")
+
+```{r, echo = F, eval = F}
+# all commands used
+5 + 7
+x <- 5+7
+x
+x-3
+y <- x-3
+z<-  c(1.1, 9, 3.14)
+?c
+z
+c(z, 555,z)
+z*2+100
+my_sqrt <- sqrt(z-1) # results in vector
+my_sqrt
+my_div <- z/my_sqrt
+c(1,2,3,4) + c(0,10) # vector recycling
+c(1, 2, 3, 4) + c(0, 10, 100)
+z*2+1000 # via up arrow
+```
+
+
+## A worked example of swirl "Sequences of Numbers"
+
+In this video I explain exactly what's going on each step of the way as I work through a swirl tutorial.  If what was happening during the swirl tutorial itself made sense then you probably don't need to watch the video.  If you were confused, watch this to see if it helps, pausing as needed to work on the tutorial.
+
+https://youtu.be/I6aoCVoKTm8
+
+
+
+```{r, echo = F}
+knitr::include_url("https://youtu.be/I6aoCVoKTm8")
+```
+
+

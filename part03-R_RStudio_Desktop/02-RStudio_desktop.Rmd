@@ -1,0 +1,43 @@
+# RStudio Desktop 
+
+```{r, echo = F,fig.cap="The RStudio logo" }
+knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/RStudio_logo_flat.svg/320px-RStudio_logo_flat.svg.png")
+
+# RStudio logo usage guidelines
+# https://www.rstudio.com/about/logos/
+```
+
+
+Very few people use the R desktop program directly; rather they use an **Interactive Development Environment (IDE)** which talks to the underling R program and provides important features not in the basic R download.  
+
+**RStudio** is probably the most popular and is available free at: https://bit.ly/RSdesktop .  There are Windows and Mac versions - make sure you get the correct one.  
+
+If you need more help see this [video](https://vimeo.com/203516968) from RStudio: https://vimeo.com/203516968
+
+```{r, echo = F}
+knitr::include_url("https://vimeo.com/203516968")
+```
+
+ 
+Note that the R icon is a dark blue “R”.
+```{r, echo = F}
+knitr::include_url("https://cran.r-project.org/Rlogo.svg")
+```
+
+
+In contrast, the *RStudio* icon is a light blue circle with a white “R” .
+```{r , eval = TRUE, rstudio.logo1, echo=FALSE, fig.cap = "The RStudio logo"}
+image.file <- here::here("images/RStudio_logo.PNG")
+knitr::include_graphics(image.file)
+```
+
+
+Here's another walkthrough of the process of downloading RStudio:
+https://youtu.be/M8N5QdkQRW4
+
+```{r, echo = F}
+knitr::include_url("https://youtu.be/M8N5QdkQRW4")
+```
+
+
+

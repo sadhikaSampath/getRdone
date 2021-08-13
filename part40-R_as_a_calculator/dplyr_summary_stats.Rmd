@@ -1,0 +1,226 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Summarizing data with dplyer
+
+```{r , eval = T}
+library(compbio4all)
+```
+
+## Preliminaries
+
+### Load packages
+```{r}
+library(compbio4all)
+library(ggplot2)
+library(cowplot)
+library(ggpubr)
+library(dplyr)
+```
+
+### Load data
+
+```{r}
+data(frogarms)
+```
+
+
+
+
+## A 1st encounter with dplyr
+
+dplyr is a package that provides numerous functions for manipulating data.  We will use two handy functions
+
+* summarize() / summarise()
+* group_by()
+
+dplyr can use a handy sytax that involes "pipes".  You can string together R commands using the function %>%
+
+When using pipes, you start with a dataframe and follow it with an action you want done to it.  So, for example, previously when we wanted the mean of the mass column we did this
+
+```{r eval = F}
+mean(frogarms$mass)
+```
+
+Which is kidn of read like a normal mathematical equation or function, where you start from inside the parentheses and work out.  R let's you nest as many functions as you wnat.  If i want to round my mean is wrap "mean(frogarms$mass)" in round(...)
+
+```{r}
+round(mean(frogarms$mass))
+```
+
+Using pipes to get the mean I write things more like a sentence:
+```{r}
+frogarms$mass %>% mean() #note parentheses.
+```
+
+Which reads kine of like "Take the mass column and the datagrame and apply the mean() function to it."  Note that the parentheses have to be included even though there is nothing in them.
+
+To round the mean we would do this
+
+```{r}
+frogarms$mass %>% mean() %>% round()
+```
+Which read left to right like a sentence is "Take the mass column, calcualte the mean and then rond it."
+
+Note that the rond() command has an arguement for how many digits you want to round to.  You include that in the parantehes
+
+```{r}
+frogarms$mass %>% mean() %>% round(digits = 2)
+```
+
+#### dplyr's summarize() commnad
+
+INstead of mean(data$column) we can use summarise()/summarize() and pipes
+Grand mean of mass
+```{r}
+frogarms %>% summarise(mean(mass))
+```
+
+this is maybe more complicated than "mean(frogarms$mass)" but overall the pipe framework and summarise pays off  when combined with group_b()
+
+## group_by
+
+For some more info on group_by see
+
+https://www.r-bloggers.com/using-r-quickly-calculating-summary-statistics-with-dplyr/
+https://www3.nd.edu/~steve/computing_with_data/24_dplyr/dplyr.html
+http://www.datacarpentry.org/R-genomics/04-dplyr.html
+
+We can use group_by() to slit things up by a categorical variable.  Here, we can say "take frogarms, split up the data by the sex column, and apply the mean function to each subset."  
+```{r}
+frogarms %>% 
+  group_by(sex) %>%
+  summarise(mean(mass))
+```
+note that the column heading in is `mean(mass)`, which is what is in summarise().
+
+A handy thing about summarize is you can pass it lables  Mean mass by sex w/ label
+```{r}
+frogarms %>% 
+  group_by(sex) %>%
+  summarise(mass.mean = mean(mass))
+```
+
+You can lable thigns anything, eg "puppies".
+```{r}
+frogarms %>% 
+  group_by(sex) %>%
+  summarise(puppies = mean(mass))
+```
+
+
+You can pass any summari function to summarise.  We can give it sd to get the sd of mass by sex.
+
+```{r}
+frogarms %>% 
+  group_by(sex) %>%
+  summarise(mass.sd = sd(mass))
+```
+
+
+What makes dplyr::group_by and summarize() really powerful is that you can pass it multiple summary functions at the same time
+```{r}
+frogarms %>% 
+  group_by(sex) %>%
+  summarise(mass.mean = mean(mass),
+            mass.sd = sd(mass))
+```
+
+
+dplyr has a handy function n() for getting your sample size.
+```{r}
+frogarms %>% 
+  group_by(sex) %>%
+  summarise(mass.mean = mean(mass),
+            mass.sd = sd(mass),
+            n = n())
+```
+
+
+
+
+--------------
+
+Pass it a novel function
+
+make my_sd1
+
+```{r, eval = F}
+frogarms %>% 
+  group_by(sex) %>%
+  summarise(mass.mean =  my_sd1(mass))
+
+```
+
+--------------
+
+
+------------
+
+## Alternatives
+
+### doBy::summaryBy
+The doBy package has a nice syntax.  I don't really see many people use it
+```{r eval = FALSE}
+library(doBy)
+summaryBy(mass ~ sex,data = frogarms, FUN = mean)
+
+summaryBy(mass ~ sex,data = frogarms, FUN = c(mean,sd))
+```
+
+
+### tapply()
+tapply is pretty old school
+```{r}
+tapply(X = frogarms$mass,INDEX = frogarms$sex, FUN = mean)
+```
+
+
+### reshape2::dcast
+
+What I've used most of my career thus far.  Am slowly switch to dplyr.
+```{r}
+library(reshape2)
+dcast(data = frogarms,
+      formula = sex ~ .,
+      value.var = "mass",
+      fun.aggregate  = mean)
+```
+
+
+------------
+
+
+
+## Your turn
+
+
+The function make_my_data2L() will extact out a random subset of the data.  Change "my.code" to your school email address, minus the "@pitt.edu" or whatever your affiliation is.
+```{r, eval = T, echo = T}
+
+my.frogs <- make_my_data2L(dat = frogarms, 
+                           my.code = "nlb24", # #<=  change this!
+                           cat.var = "sex",
+                           n.sample = 20, 
+                           with.rep = FALSE)
+
+```
+
+n.sample is set to 20.  This is set up to extract 20 unique individuals of each sex.  Check that you dataframe is 2*20 = 40 rows using the dim() command.
+
+Assignment...
+
+Can compare your subset to the original data
+```{r}
+summary(frogarms$mass)
+```
+
+Handy trick: stack up the data with rbind()
+
+```{r}
+rbind(summary(my.frogs$mass),
+      summary(frogarms$mass))
+```
+

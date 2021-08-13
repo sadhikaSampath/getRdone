@@ -1,0 +1,8 @@
+# Goind deeper with functions and arguments {#deeperfnxns}
+
+For in-depth information on how functions work in R see the following resources
+
+Ihaka, R.  n.d. ["R Functions Things Your Mother (Probably) Didn’t Tell You About"](https://www.stat.auckland.ac.nz/~ihaka/downloads/Waikato-WRUG.pdf).  https://www.stat.auckland.ac.nz/~ihaka/downloads/Waikato-WRUG.pdf
+
+Wickham, H.  2019.  Advanced R  2nd ed., [Chapter 6: Functions](https://adv-r.hadley.nz/functions.html).
+https://adv-r.hadley.nz/functions.html

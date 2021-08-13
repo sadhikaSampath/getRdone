@@ -1,0 +1,182 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Downloading R packages (and their data)
+
+In the previous chapter we used some data the comes with R.  In this lesson we'll start expanding out from the **Base R distribution** and exploring the ways that external **packages** extend R.
+
+## Loading data from R packages
+
+**NEW text:** 
+When you install R you get *Base R**, which is the core set of functions, functionality, and some data sets.  Base R is surrounded by a universe of extensions built by statistician, programmers, academics and businesses that use R for analyses.  A lot of R's functionality is found in these packages, including data sets, special plotting functions, and statistical tools for the analysis of complex data.  These have to be downloaded from the internet and installed.  Most packages contain data in order to demonstrate what they do.
+
+Most R packages you'll use are stored on the CRAN website where you download R (https://cran.r-project.org/).  R and RStudio have functions and tools for downloading and managing packages that we'll briefly introduce in this exercise. 
+
+Another major platform for packages is called **Bioconductor**; we'll cover downloading packages from there later.  Finally, many packages are hosted on a site called **GitHub**.  This book relies heavily on an R package I've written and hosted on GitHub called `combio4all` (https://brouwern.github.io/combio4all/) that contains the datasets used throughout the book, as well as some helpful R functions I've written.  Many packages on CRAN also occur on GitHub, especially if programmers are actively developing, updating, and managing the package.  We'll cover downloading packages from GitHub later.
+
+### Functions & Arguements
+
+* `install.packages()`
+  - Argument: `dependencies = TRUE`
+* `library()`
+
+
+
+------------------
+
+## OPTIONAL: What functions come with base R?
+
+**The following section is OPTIONAL**
+
+If for some reason you want to see *all* the functions that come with the distribution base R, type this into the console and press enter.  (`ls` stands for "list" and is a function we'll use more later).
+```{r eval = FALSE}
+# this code chunk is OPTIONAL
+ls("package:base")
+```
+
+As R has been developed there has also built up a cannon of tried and true packages that are downloaded automatically when you download R.  If you want to see all of the packages that come with base R, do this.  `library()` is a function you will use a lot.
+
+```{r eval = FALSE}
+# this code chunk is OPTIONAL
+.libPaths("") 
+library()
+```
+
+One package that is part of this cannon is `MASS`, which stands for Modern Applied Statistics in S.  "S" is the precursor to R, and MASS is the package that accompanies the book of the same name, which is one of the original books on S/R.  (https://www.springer.com/us/book/9780387954578)
+
+**End OPTIONAL section**
+
+------------------
+
+## Load data from an external R package
+
+Many packages have to be explicitly downloaded and installed in order to use their functions and datasets.  Note that this is a **two-step process**:
+
+1. Download package from internet with `install.packages(...)`
+1. Explicitly tell R to load it with `library(...)`
+
+
+### Step 1: Downloading packages `install.packages(...)`
+
+There are a number of ways to install packages.  One of the easiest is to use the function `install.packages()`.  Note that it might be better to call this "download.packages" since after you download it, you still have to load it!  (Lots of confusion has resulted from calling this function "install.packages").
+
+We'll download a package with lots of interesting biology data called `Stat2Data`.  Note that in the **call** to  `install.packages(...)`, the name of the package is in quotes.
+
+```{r eval = FALSE}
+install.packages("Stat2Data")
+```
+
+Often when you download a package you'll see a fair bit of red text.  Usually there's nothing of interest here, but sometimes you need to read over it for hints about why something didn't work.
+
+For example, when I downloaded this package I got this cryptic message in bright red text:
+`trying URL 'https://cran.rstudio.com/bin/macosx/contrib/4.0/Stat2Data_2.0.0.tgz'`
+`Content type 'application/x-gzip' length 1177728 bytes (1.1 MB)`
+`==================================================`
+`downloaded 1.1 MB`
+
+Followed by this in less insistent black:
+`The downloaded binary packages are in`
+`	/var/folders/q8/gwjfr69n05vf4h15l6hdl4d8x1zk5v/T//RtmpeRHx2y/downloaded_packages`
+
+This is all perfectly normal, so don't worry.
+
+#### Protip: don't re-download packages all the time
+
+You can think of R and RStudio like a computer operating systems, and packages like software you chose to download. R, RStudio and packages will need to be updated at times - indeed, the first step in diagnosing many problems with R is to update things.  But updates probably only need to be done every six months or so at the most; I generally wait until things stop working.
+
+Anytime a lesson introduces a new package I'll include code to do the download.  You only need to do this once unless you start encountering a problems.  A way to make this happen is to **comment out** the code by putting a hashtag in front of it like this
+
+```{r}
+# install.packages("Stat2Data")
+```
+
+This preserves the code but tells R *"don't run this line."*
+
+
+### Step 2: Explicitly loading a package
+
+The `install.packages()` function just downloads the package software to R; now you need to tell R explicitly *"I want to work with the package"*.  This is done using the `library()` function. (Its called library because another name for packages is **libraries**.  ).
+
+```{r}
+library(Stat2Data)
+```
+
+As frequently is the case, R doesn't look like its doing much, but you've actually just installed a bunch of cool datasets.
+
+In contrast to running ` install.packages()`, `library()` need to be run **every time you use the code**.  More specifically, every time you re-start R.  What happens is when you shut down R, all the packages you loaded using `library()` are taken out of memory.  Next time you use R you need to re-load them using `libary()`.
+
+
+---------------------------
+
+## OPTIONAL: Seeing all of your installed packages
+
+**The following section is OPTIONAL**
+
+If for some reason you want to see everything you've downloaded, do this.
+
+```{r eval = F}
+# This code is optional
+installed.packages()
+```
+
+**End OPTIONAL section**
+
+---------------------------
+
+
+## Downloading packages using RStudio
+
+RStudio has a point-and-click interface to download packages.  In the pane of the RStudio GUI that says "Files, Plots, Packages, Help, Viewer" click on "Packages".  Below "Packages" it will then say "Install, Update, ..,"  Click on "Install."  (There might be a lag during this process as RStudio gets info about your packages).  In the pop up widow there will be a middle field "Packages" where you can type the name of the package you need.  There's an auto-complete feature to help you in case you forget the name.  Then click "install."  Note that in the bottom right corner of the pop up is a checked box next to "Install dependencies."  Leave that checked; more on that later.
+
+This is a useful function, but I don't do this very often because I include any download information in my scripts.
+
+## Your turn
+
+Fix this code
+
+```{r, eval = F}
+install.packages(MASS)
+install.packages("car)
+install.packages ggplot2 
+install.packages(cowplot 
+install.packagesggpubr 
+```
+
+
+
+The package `carData` contains a time series dataset called USpop.  Fix the following code to download and plot these data. 
+
+```{r, eval = F}
+install.packages("carData")
+plot(USPop)
+```
+
+
+```{r, eval = F, echo = F}
+# KEY
+install.packages("carData")
+library(carData)            # call to library() missing
+plot(USPop)
+```
+
+
+The package `boot` contains a dataset called `ducks` on the behavior of crosses between two species of ducks: Mallards and Pintails  Fix the following code to download and plot these data. 
+
+```{r, eval = F}
+install.packages("boot")
+library(boot)
+plot(ducks)
+```
+
+```{r, eval = F, echo = F}
+# KEY
+install.packages("boot")
+library(boot)
+data(ducks)               # call to data(ducks) missing
+plot(ducks)
+```
+
+
+

@@ -1,0 +1,15 @@
+# Troubleshooting problems w/ RStudio Cloud
+
+RStudio Cloud is almost always a painless program to use.  Occasionally a few minor hiccups will occurs.  The following tips should help you clean up any problems. Note that the best browsers for RStudio Cloud are Chrome and Firefox; if you're using Safari I recommend switching.
+
+When you are having a trouble with RStudio Cloud do the following things to see if they help:
+
+1. Refresh the browser
+1. Check that no pop-up blocker is active; disable for RStudio cloud
+1. Click out of project and reload
+1. Turn off your wifi and turn it back on
+1. Close browser tab and reload
+1. Close browser and Restart it
+1. Explicitly log out of your Cloud account and log back in
+1. Try a different browser (eg, use Firefox if you’ve been using Chrome)
+1. Update your browser (download it again, install updates etc).

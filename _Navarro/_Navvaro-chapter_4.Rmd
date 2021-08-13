@@ -1,0 +1,123 @@
+# Readings - Other R concepts (Navarro chapter 4)
+
+Please read the indicated sections of Chapter 4 of Navarro's R book and run the code. 
+
+ 
+
+YOu can download the book here or find the HTML version:
+
+https://learningstatisticswithr.com/ (Links to an external site.)
+
+HTML version: https://learningstatisticswithr.com/book/ (Links to an external site.)
+
+(note that the HTML version doesn't have page numbers)
+
+A PDF copy with key sections highlighted is on Box.
+
+You should read most of Chapter 4, though there are several sections you can skip for now.  If a subsection is not listed you can skip it, though I generally try to explicitly say what to skip.  When you're done take the quiz on the next page.
+
+ 
+
+ 
+
+Part II. An introduction to R
+Chapter 4. Additional R concepts (pg 73)
+
+4.1 Using comments
+
+4.2 Installing and loading packages
+
+4.2.1 The package panel in Rstudio
+4.2.2 Loading a package
+
+4.2.3 Unloading a package
+
+(Good to know, but I rarely unload packages)
+
+4.2.4 A few extra comments (on dependencies and "masking")
+
+4.2.5 Downloading new packages
+
+4.2.6 Updating R and R packages
+
+ 
+
+4.3 Managing the workspace
+
+4.3.1 Listing the contents of the workspace
+The book has its own package, lsr, but we won't use it in the course
+4.3.2 Removing variables from the workspace
+
+I rarely bother do this
+ 
+
+4.4 Navigating the le system
+
+4.4.1 The file system itself
+
+4.4.2 Navigating the le system using the R console
+
+4.4.3 Why do the Windows paths use the wrong slash?
+
+4.4.4 Navigating the le system using the Rstudio le panel
+
+ 
+
+4.5 Loading and saving data
+
+4.5.1 Loading workspace files using R
+Most people rarely save workspace files.  It's better to re-run all the code each session.  I will sometimes do this if I have really big simulation results.  
+4.5.2 Loading workspace files using Rstudio
+
+4.5.3 Importing data from CSV files using R
+
+4.5.4 Importing data from CSV files using Rstudio
+
+4.5.5 Saving a workspace le using R
+
+Again, I rarely do this.
+4.5.6 Saving a workspace le using Rstudio
+
+4.5.7 Other things you might want to save
+
+ 
+
+4.6 Useful things to know about variables
+
+4.6.1 Special values
+4.6.2 Assigning names to vector elements
+
+4.6.3 Variable classes
+
+ 
+
+4.7 Factors (OPTIONAL)
+
+4.8 Data frames
+
+4.8.1 Introducing data frames
+4.8.2 Pulling out the contents of the data frame using $
+
+4.8.3 Getting information about a data frame
+
+4.8.4 Looking for more on data frames?
+
+ 
+
+4.9 Lists
+
+If you have a programming background you may be curious about lists in R.  If you're new to programming, skip this section.
+
+ 
+
+4.10 Formulas
+
+4.11 Generic functions SKIP
+
+4.12 Getting help
+
+Note: R's help files are a necessary evil.  They are always good to check, but often they will only confuse you.  Key to to look at them but not freak out if they aren't helpful.
+
+ 
+
+4.13 Summary

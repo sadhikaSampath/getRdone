@@ -1,0 +1,198 @@
+# Loading data into R from a package
+
+## Introduction
+
+Working in R is all about working with data.  There are many ways to get data into R, and RStudio has some helpful tools for this process. In this exercise we'll go over the common ways that data get's brought into R and how to download external packages to get datasets and functions.  These include data
+
+* pre-loaded in R
+* loaded in R "packages"
+* typed into a script
+* loaded from a spreadsheet using RStudio's data import tools
+* loaded from a spreadsheet using just R code
+
+While discussing these various routes for data to get into R we'll also talk a bit about how R works with data and learn data related vocab.
+
+### Functions
+
+* head(), tail()
+* summary()
+
+### Datsets
+
+* datasets::iris
+
+### Packages
+
+### Key terms
+
+* package
+* dataframe
+
+## Data pre-loaded in R
+
+R comes with a number of datasets ready to use.  A famous dataset frequently used in statistics is a set of measurements made on three species of irises and used to demonstrate some statistical principles by geneticist and statistician R.A. Fisher.
+
+We can put the iris dataset into R's working memory using the data() command
+```{r}
+data(iris)
+```
+
+trees
+CO2
+Loblolly
+LakeHuron
+Orange
+co2
+
+beaver1
+beaver2
+
+
+We can see these data simply by type the word "iris" in the console and pressing enter.  The dataset is too big for the screen probably and you'll just see a bunch of numbers flash by.  You can get just a glimpse of the data by using the head() command, which will show you the first six or so rows of data.
+
+```{r}
+head(iris)
+```
+
+(You can all use the tail() command to see the last 6 rows if you want.)
+
+We can see that there are five rows of data. Three contain information about the length and width of the parts of the flower (Sepals and Petals) and the last holds the names of the species.
+
+
+We can get a sense for these numbers by using the summary() command on the data, which will give us the mean and other summary statistics
+```{r}
+summary(iris)
+```
+
+Note that the last column doesn't contain numbers but rather names, so R counts up how many of each species name there is.
+
+If we want to be reminded of the names of each column we can use the names() function
+```{r}
+names(iris)
+```
+
+
+Looking at R data in the console isn't always very easy, so one thing you can do is use the View() command.  This will bring up the data in a spreadsheet like viewer as a new tab in the script editor, similar to this.
+```{r}
+pander::pander(iris[1:10,])
+```
+
+Note, however, that unlike a spreadsheet you cannot edit the data.
+
+If you want to know more about a package, you can look at its help file, eg "?iris."  These will often give you a fair bit of detail about what each column means, where the data are from, and may even have examples R functions applied to the data (though these can be rather obtuse, as is the case for the iris data).
+
+
+### Preview: Plotting boxplots
+
+Plotting will be covered in depth in a subsequent exercise, but here's a glimpse of how we plot things in R:
+
+```{r}
+plot(Petal.Length ~ Species, data = iris)
+```
+
+This code creates a series of **boxplots** of the petal lengths of each species of flower.
+
+
+
+
+### Loading a package contained in base R
+
+A package that is usually automatically downloaded but not automatically *installed* with base R is the "MASS" package, which stands for "Modern Applied Statistics in R"; S is the software that preceded R.  We can install this package and make it functionally using the library() command
+
+```{r}
+library(MASS)
+```
+
+The MASS package has a biological dataset called "crabs" that you can put into working memory using data(crabs).  We can then look at it using head(),View(), tail(), summary(), etc.  We can find out more about the dataset using the help file, accessed via ?crabs
+
+**Question**
+1.What does the "FL" column mean in the crabs dataset?
+1.What is the mean of the FL column?
+
+### Preview: Plotting scatter plot
+
+We can plot the relationship between the FL and RW variables using a scatter plot.
+```{r}
+plot(FL ~ RW, data = crabs)
+```
+
+
+
+## Learning about data in R
+
+When data is being worked with in R, it lives in a place called the **workspace.**  The workspace is not immediately transparent to you while working in R.  It lives behind the scenes in what is essentially R's working memory.  We can see what's on R's mind using the ls() command
+
+```{r}
+ls()
+```
+
+We can see our two datasets that we loaded using the data() command.
+
+We can add new things to the work space using an R command like this
+
+```{r}
+my.mean <- mean(c(1,2,2))
+```
+
+Where "<-" is called the **assignment operator**.  This function **assigns** the output of an R command or R function to an **R object** in R's working memory, the workspace.
+
+We can check again what's on R's mind using a command ls(), which stands for "list"
+```{r}
+ls()
+```
+
+We can see that we added my.mean.  We can see what my.mean is by typing its name in to the console
+
+```{r}
+my.mean
+```
+
+We can also learn more about is using the is() command
+```{r}
+is(my.mean)
+```
+
+Here we get a big of R lingo: R tells use "numeric", which means it contain numeric data (numbers), and "vector", which is one of several types of R object
+
+R objects can be just about anything.  We can assign letter to an R object like this
+```{r}
+my.abc <- c("a","b","c")
+```
+Note that we have the letter each surrounded by quotes, and all 3 of them within c(...)
+
+If you call up "my.abc" from the console, you will get back the three letter.  Now see what is(my.abc) says
+
+```{r}
+is(my.abc)
+```
+ There's a lot that comes out, but the first one says "character", indicating that yo have **character data** - data made up of text.
+ 
+If you type ls() again what happens?
+```{r}
+ls()
+```
+ 
+We now see both of our R objects and the two datasets.
+
+If we call is() on one of the dataset what do we is?
+```{r}
+is(crabs)
+```
+
+Several things get spit out, but the first one is important: "data.frame"  Dataframes are fundamental units of analysis in R.  Most of the data you will load into R and work within R will be in a dataframe.
+
+Another function that tells about something in the the workspace is str(), which stands for structure.  It provides info about what types of variables are in each column, and provides some sample output similar to head(), but oriented differently.
+
+```{r}
+str(crabs)
+```
+
+Note that the variables "sp", which stands for "Species", and "sex" are followed by the word "Factor."  A **factor variable** is something that is or is summarized as discrete categories.  For the species factor, there are two levels: the "B" species and the "O" species.
+
+
+
+
+
+
+
+

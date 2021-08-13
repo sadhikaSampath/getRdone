@@ -1,0 +1,13 @@
+# Intalling R packages
+
+An video showing the process of loading packages:
+https://youtu.be/cY4dxsh3lXI
+
+
+```{r, echo = F}
+knitr::include_url("https://youtu.be/cY4dxsh3lXI")
+```
+
+
+
+

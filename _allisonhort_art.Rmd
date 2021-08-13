@@ -1,0 +1,19 @@
+https://github.com/allisonhorst/stats-illustrations
+
+R Knowledge Rollercoaster:
+https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/r_rollercoaster.png
+
+From horror to love of R
+https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/r_first_then.png
+
+
+in_case_you_forget:
+(snake case vs. camel case vs...)
+https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/other-stats-artwork/coding_cases.png
+
+Nominal, ordinal & binary data:
+https://github.com/allisonhorst/stats-illustrations/blob/master/other-stats-artwork/nominal_ordinal_binary.png
+
+k-means clustering thread:
+
+Hierarchical clustering (single linkage) thread:

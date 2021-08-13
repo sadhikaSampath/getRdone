@@ -1,0 +1,9 @@
+# Functions and function arguements
+
+
+A useful summary of how functions work can be found at http://datascibc.org/Data-Science-for-Docs/01-lesson-01-r-for-newbies.html
+
+```{r, echo = F}
+knitr::include_graphics("http://datascibc.org/Data-Science-for-Docs/img/function-anatomy.png")
+```
+

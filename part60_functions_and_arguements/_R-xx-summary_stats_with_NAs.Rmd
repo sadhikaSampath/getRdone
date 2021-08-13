@@ -1,0 +1,66 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Summary stats for main PA eagle dataframe
+
+```{r}
+library(compbio4all)
+data("eaglesPA")
+```
+
+
+There are many commands for summary data in R, such as mean, median.  However, you have to be careful about NAs!
+
+```{r}
+mean(eaglesPA$eagles)
+```
+
+So, you asked for the mean of the eagles data, and you got NA.  That's really annoying.  
+
+
+### "NA" is a big deal in R
+
+Try this
+```{r}
+mean(eaglesPA$eagles, na.rm = T)
+
+```
+"na.rm = T", which means "na.rm = TRUE", which means, "should I remove the NAs = yes, do it"
+
+
+### R also is VERY picky about uppper vs. lower case
+
+```{r, error = T}
+Mean(eaglesPA$eagles, na.rm = T)
+
+```
+
+Note that the R error message is not very helpful : (
+
+
+
+### Most basic R commands are lower case
+
+```{r, eval = F}
+mean(eaglesPA$eagles, na.rm = T)
+median(eaglesPA$eagles, na.rm = T)
+min(eaglesPA$eagles, na.rm = T)
+max(eaglesPA$eagles, na.rm = T)
+summary(eaglesPA$eagles)
+sd(eaglesPA$eagles, na.rm = T)
+
+```
+
+### Standard error in R
+
+The standard error (se) is a very common summary statistics but for some reason 
+there is not a function for it in base R
+
+#### Calcualte the standard error by hand
+
+Use the sd() command and the square root command sqrt
+```{r}
+sd(eaglesPA$eagles, na.rm = T)/sqrt(15)
+```

@@ -1,0 +1,7 @@
+# Note on updating R (read if you've used R before!)
+
+Important note: R is frequently updated!
+
+If you already have R downloaded for a previous class, you should update it by downloading and reinstalling it again.   R went through a major update this past year and you need to make sure you have the newest version.
+
+(If you just downloaded R for a class, you're good!)

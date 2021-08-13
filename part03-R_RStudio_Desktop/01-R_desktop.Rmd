@@ -1,0 +1,32 @@
+# R Desktop
+
+```{r, echo = F}
+knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/310px-R_logo.svg.png")
+```
+
+
+R is pretty easy to download and install.  If you need further help see this video: 
+https://youtu.be/C5iST9E-U_s (PC only), or this one by the team at RStudio:
+https://vimeo.com/203516510  
+
+* Windows: https://cran.r-project.org/bin/windows/base/ 
+* Mac: https://cran.r-project.org/bin/macosx/.  
+ 
+PC Users: Make sure you download the **64 bit** version.
+ 
+Mac users: If you are running an older Mac OS you may have to look around to pick the appropriate version - or better yet, try to update your OS.  If you are a student you may be able to get the update for free through your school
+ 
+## Important notes
+
+1.  **R is frequently updated!**:  If you already have R downloaded, you should update it by downloading and reinstalling it again.
+1. **People don’t actually use the base R program!**  After you install R, an icon will show up on your computer in the usual places:  .  There’s rarely any reason to click on this - instead, you’ll use another program called RStudio - see the next step!  
+
+For a bit more info on the difference between R and RStudio see
+https://community.rstudio.com/t/differentiating-r-from-rstudio/8009?u=mara
+
+## Videos
+
+This video shows how to install R on a PC
+https://youtu.be/C5iST9E-U_s
+
+![](https://youtu.be/C5iST9E-U_s)

@@ -1,0 +1,232 @@
+---
+title: "Untitled"
+author: "brouwern@gmail.com"
+date: "November 9, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#categorical data
+```{r}
+data(HairEyeColor)
+```
+
+
+#t-test: numeric vs. 2 groups
+
+```{r}
+
+# also catsM male vs. female  cats
+Mammals$hoppers <- factor(Mammals$hoppers)
+summary(Mammals[,c("speed","hoppers")])
+
+ylab. <- "Maximum speed "
+xlab. <- "Hops or doesn't (T/F)"
+ggplot(Mammals, 
+       aes(y = speed, 
+           x =hoppers, 
+           colour = hoppers, 
+           group = hoppers,
+           shape = hoppers)) + 
+  stat_summary( fun.y = mean,
+                fun.ymin = function(x) mean(x) - 1.96*se(x), 
+                fun.ymax = function(x) mean(x) + 1.96*se(x), 
+                geom = "linerange",
+                size =1.3) +
+  stat_summary(fun.y = mean,
+               fun.ymin = function(x) mean(x) - 1*se(x), 
+               fun.ymax = function(x) mean(x) + 1*se(x), 
+               geom = "linerange",
+               color = "black",
+               size =3.05) +
+  stat_summary(fun.y = mean,
+               geom = "point",
+               size = 6.75) +
+  theme_bw() +
+  xlab(xlab.) +
+  ylab(ylab.) +
+  theme(axis.text=element_text(size=14),
+        axis.title=element_text(size=14,face="bold"))
+
+
+
+```
+
+
+
+
+
+
+
+##  paired data
+```{r}
+bonemass <- data.frame(mother=1:10,
+    b.mass.bfeeding=c(1928, 2549, 2825, 1924, 1628, 2175, 2114, 2621, 1843, 2541),
+    b.mass.weaning=c(2126, 2885, 2895, 1942, 1750, 2184, 2164, 2626, 2006, 2627))
+
+
+b.mass.bfeeding=c(1928, 2549, 2825, 1924, 1628, 2175, 2114, 2621, 1843, 2541)
+    b.mass.weaning=c(2126, 2885, 2895, 1942, 1750, 2184, 2164, 2626, 2006, 2627)
+
+bonemass2 <- data.frame(mother=c(1:10,1:10),
+                        bone.mass = c(b.mass.bfeeding,
+                                      b.mass.weaning),
+                        period = c(rep("breast.feed",10),
+                                   rep("weaning",10)))
+                        
+    
+
+
+
+summary(bonemass)
+
+diff <- with(bonemass, weaning - breastfeeding )
+
+df <- data.frame(diff = diff, group = 1)
+ylab. <- "Difference in bone mass"
+xlab. <- ""
+
+
+
+
+ggplot(bonemass,
+       aes(y = weaning,
+           x = breastfeeding)) +
+  geom_point(size = 4) +
+  geom_abline() + xlab("Bonemass during breast feeding") +
+  ylab("Bonemass during weaning") +
+  theme(axis.text=element_text(size=14),
+        axis.title=element_text(size=14,face="bold")) +
+  theme_bw()
+
+
+
+
+ggplot(aes(y = diff,
+      x = factor(group)), data = df) + 
+  stat_summary( fun.y = mean,
+                fun.ymin = function(x) mean(x) - 1.96*se(x), 
+                fun.ymax = function(x) mean(x) + 1.96*se(x), 
+                geom = "linerange",
+                size =1.3) +
+  stat_summary(fun.y = mean,
+               fun.ymin = function(x) mean(x) - 1*se(x), 
+               fun.ymax = function(x) mean(x) + 1*se(x), 
+               geom = "linerange",
+               color = "black",
+               size =3.05) +
+  stat_summary(fun.y = mean,
+               geom = "point",
+               size = 6.75) +
+  theme_bw() +
+  xlab(xlab.) +
+  ylab(ylab.) +
+  theme(axis.text=element_text(size=14),
+        axis.title=element_text(size=14,face="bold")) 3wq
+
+ 
+
+
+
+ggplot(aes(y = bone.mass,
+           x = period,
+           color = period,
+           shape = period), data = bonemass2) + 
+  stat_summary( fun.y = mean,
+                fun.ymin = function(x) mean(x) - 1.96*se(x), 
+                fun.ymax = function(x) mean(x) + 1.96*se(x), 
+                geom = "linerange",
+                size =1.3) +
+  stat_summary(fun.y = mean,
+               fun.ymin = function(x) mean(x) - 1*se(x), 
+               fun.ymax = function(x) mean(x) + 1*se(x), 
+               geom = "linerange",
+               color = "black",
+               size =3.05) +
+  stat_summary(fun.y = mean,
+               geom = "point",
+               size = 6.75) +
+  theme_bw() +
+  xlab("Period") +
+  ylab("Bone mass") +
+  theme(axis.text=element_text(size=14),
+        axis.title=element_text(size=14,face="bold")) 
+
+
+```
+
+
+
+
+
+
+# 1-way ANOVA: numeric vs. group
+```{r}
+data(PlantGrowth)
+summary(PlantGrowth)
+ylab. <- "Plant weight"
+xlab. <- "Experimental treatment"
+ggplot(PlantGrowth, 
+       aes(y = weight, 
+           x =group, 
+           colour = group, 
+           group = group,
+           shape = group)) + 
+  stat_summary( fun.y = mean,
+                fun.ymin = function(x) mean(x) - 1.96*se(x), 
+                fun.ymax = function(x) mean(x) + 1.96*se(x), 
+                geom = "linerange",
+                size =1.3) +
+  stat_summary(fun.y = mean,
+               fun.ymin = function(x) mean(x) - 1*se(x), 
+               fun.ymax = function(x) mean(x) + 1*se(x), 
+               geom = "linerange",
+               color = "black",
+               size =3.05) +
+  stat_summary(fun.y = mean,
+               geom = "point",
+               size = 6.75) +
+  theme_bw() +
+  xlab(xlab.) +
+  ylab(ylab.) +
+  theme(axis.text=element_text(size=14),
+        axis.title=element_text(size=14,face="bold"))
+
+
+```
+
+
+
+
+#Numeric vs. numeric data
+```{r}
+data(msleep)
+summary(msleep[, c("sleep_total","brainwt")])
+xlab. <- "Log(brain weight)"
+ylab. <- "Total sleep"
+ggplot(msleep, 
+       aes(y = sleep_total, 
+           x =log(brainwt))) +
+  geom_point(size = 3, color = "darkgreen") +
+  theme_bw() +
+  xlab(xlab.) +
+  ylab(ylab.) +
+  theme(axis.text=element_text(size=14),
+        axis.title=element_text(size=14,face="bold"))
+
+
+```
+
+
+
+library(boot)
+data(melanoma)
+
+with(melanoma, table(status, sex))
+
+plot(status ~ time, data = melanoma)
+
+

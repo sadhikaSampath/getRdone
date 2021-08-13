@@ -1,0 +1,34 @@
+# Problems getting R and RStudio up and running
+ 
+90% of the time or more people can get R and RStudio up and running.  However, there can be some weird issues.  Below are some ideas for troubleshooting.  I encourage you to read through all of them to get oriented to all the possible solutions before you select one.
+ 
+Solution 0: Do you have RStudio AND the base R program downloaded?  Do you have the current version (R vs. Mac) of BOTH R and RStudio downloaded?).
+Sorry, need to ask.  You get R from the CRAN website (PC download: bit.ly/CRANwindows; Mac download: bit.ly/CRANmac) and RStudio from the RStudio website.
+ 
+ 
+## Solution 1: Use RStudio Cloud (short-term solution) 
+
+This is a short-term solution, since free accounts only provide 15 hours per month.  This will let you dabble and get some things done while you troubleshoot things.
+ 
+## Solution 2: Use the base R program (medium-term solution) 
+
+If RStudio isn’t working the basic R program may still be ok.  You can probably fix this by re-downloading the R program - see the next solution for details.  But, if you just want to get some coding done, you can use the base R program.  Note that the R icon is a dark blue “R” , while the RStudio Icon is a light blue circle with a white “R” .
+ 
+## Solution 3: Update an old version of R
+
+Sometimes RStudio doesn’t play nice with older versions of R.  If you used R before and just downloaded RStudio for the first time, download R again, then see if RStudio works.  PC download: bit.ly/CRANwindows; Mac download: bit.ly/CRANmac.
+
+## Solution 3: Address common problems
+
+There are some common problems when downloading R and RStudio or trying to run them for the first time.   If you are a student your school’s computer services or IT deChapterment can probably help you with this.
+
+1. Are your security settings preventing download?  Dial back them back / turn them off temporarily.
+1. Do you need to install updates?  New versions of R and RStudio play the nicest when your computer is up to date.
+1. Do you need to update your OS?  If your operating system (OS) is very old it may be possible to get R running (see below), but it's easiest if you update the OS.  If you are a student your may be able to get this software for free.
+1. Did you download R and/or RStudio to a network drive rather than your hard drive?  Executable software usually needs to be installed on your computers hard drive, not a shared network drive or location in the cloud such as OneDrive.
+ 
+## Solution 4: See the full Troubleshooting Guide 
+ 
+An in-depth troubleshooting guide is included in this book.
+ 
+ 

@@ -1,0 +1,14 @@
+# Ways of getting data into R
+
+Getting data into R is often one of the most frustrating steps for beginners because R, like most data analysis tools that aren't spreadsheets, it seemingly very picky about how it wants to receive data.  Luckily there's a method behind the madness, and also some handy tools in RStudio to help with this.
+
+Most data starts off as a spreadsheet or some other kind of table before it enters R.  Loading spreadsheet data into R will be our end goal, but as a run up will step through several easier tasks that will highlight the core principles of getting data into R, in particular loading additional software into R (called packages) and loading the data in those packages into R.  We'll also load data directly from the internet into R.  
+
+The chapters in this section are cover the following:
+
+1. Loading R packages to get new software into R
+1. Loading and looking at data from R packages
+1. Loading packages from the software repository GitHub
+1. Loading data from the internet
+1. Loading spreadsheets as .csv files
+1. Loading Excel spreadsheets

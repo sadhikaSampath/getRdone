@@ -1,0 +1,451 @@
+---
+title: "lowBrowR: ggplot notes"
+author: "brouwern@gmail.com"
+date: "November 23, 2016"
+output: html_document
+---
+
+```{r   include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Load Martin 1992 data
+```{r eval = F}
+setwd("~/1_R/NLBs_tutorials_Rpubs_etc")
+data <- read.csv("martin1992_CSV.csv", skip = 1,
+                  na.strings = c("NA","na") )
+```
+
+
+#### GGPLOT
+library(ggplot2)
+
+##### Howd do I Increase the font size for the x and y axes in ggplot?
+
+##### How do I increase the SIZE OF THE TICK LABELS on the x and y axes?
+##### How do I increase the size of TITLES or labels on the x and y axes?
+##### How do I make these things bold?
+Use "theme(axis.text = element_text(size = ...))" for the axis labels.
+Use "theme(axis.tile = element"
+
+```{r}
+qplot(clutch.sz,
+       data = data) + 
+  geom_vline(xintercept = 5) +
+  xlab("Clutch size") +
+  ylab("Count") + 
+  ggtitle("Distribution of clutch sizes, data 1992") +
+  theme(axis.text=element_text(size=18),               #increase  font size to 18
+        axis.title=element_text(size=22,
+                                face="bold")) #use bold text
+```
+
+
+
+
+##### How do I add horizontal and vertical lines to a ggplot?
+"geom_hline(xintercept = 0)"
+"geom_vline(yintercept = 0)"
+
+
+
+##### How do I flip or rotate the coordinates to that the y-axis becomes the x-axis in ggplot? 
+
+coord_flip()
+
+This can be used to make coefficient plots and forests plots.
+
+
+##### How do I flip the y axis so that positive values are on the opposite side in ggplot?
+scale_y_reverse()
+
+
+##### How do I manually set the colors for the legend or scale in ggplot?
+##### How do I change  the colors of the legend or scale in ggplot?
+
+scale_colour_manual(name="Experimental\nSettings",
+                      values=colors_BeS.3,
+                      labels=c("Greenhouse", "Greenhouse\n& Field")) 
+
+
+
+
+
+##### How do I make a confidence band around a line in ggplot?
+#(regression, linear model, CI, confidence interval)
+geom_ribbon(aes(ymin=SE.real.minus,
+                             ymax=SE.real.plus),
+                         alpha=0.15,
+                         linetype = 0)
+
+
+
+##### How do i set the limits on the x or y axis in ggplot?
+##### How do I re-name the x or y axis in ggplot?
+The commands scale_x_continous() and scale_y_continous() can do several things.  See also xlab() and ylab()
+```{r}
+scale_x_continuous(name="Stem Length",limits=c(15,100)) + #Stem Length (cm)
+scale_y_continuous(name="Reversion Probability")
+```
+
+
+
+##### How do I make changes to the legend in ggplot?
+##### How do I change the position of the legend in ggplot?
+##### How do I change the title over the legend?
+##### How do I change the font of the *title* of the  legend in ggplot?
+##### How do I change the font of the *labels* of the legend in ggplot?
+
+
+```{r}
+#keywords: ggplot, legend, font, bold,
+theme(
+  legend.position="right",
+  #legend.position=c(0.15, .85),
+  legend.title = element_text(colour="black", 
+                              size=24, 
+                              face="bold"),
+  legend.text = element_text(colour="black", 
+                             size = 20, 
+                             face = "bold")) +
+  
+```
+
+
+                             
+                          
+                          
+                          
+##### How do I change the thickness of the axes in ggplot?                      
+```{r}
+theme(axis.line = element_line(size=2, color = "black"))    #makes axes lines thicker
+```
+
+
+##### How do I get rid of/remove/suppress the box around the plotting field
+```{r}
+# keywords: box, border, edging, around blot
+ theme(panel.border = element_rect(color = "white")) 
+```
+
+
+#### How do I get rid of the box around...
+```{r}
+# keywords: box, border, edging, around blot
+theme(legend.key = element_rect(colour = 'white')) +   # gets rid of box around length key items
+
+```
+
+
+#### How do I get rid of the grid lines within the plot in ggplot?
+```{r}
+ theme(panel.grid.minor=element_blank(), 
+       panel.grid.major=element_blank())
+```
+
+
+#### How do I set the font of the axes titles?
+#### How do I adjust the positions of the axes titles?
+```{r}
+theme(axis.title.x = element_text(face="bold", size=32),
+      axis.text.x  = element_text(vjust=0.95, 
+      size=32,
+      face="bold"),
+      axis.title.y = element_text(face="bold", 
+              size=32,
+            vjust=0.35),
+              axis.text.y  = element_text(vjust=0.5, 
+              size=32,face="bold"))
+
+```
+
+
+
+#### How do I drop, remove or suppress the legend in ggplot?
+theme(legend.position = "none")
+
+theme(legend.background = element_rect())
+
+theme(legend.background = element_rect()) 
+
+
+#### How do I increase the size text of the within facets?
+#### How do I increase the font size of facet labels?
+http://stackoverflow.com/questions/2751065/how-can-i-manipulate-the-strip-text-of-facet-plots-in-ggplot2/2751201#2751201
+theme(strip.text.x = element_text(size = 8, colour = "orange", angle = 90))
+
+qplot(hwy, cty, data = mpg) + 
+      facet_grid(. ~ manufacturer) + 
+      theme(strip.text.x = element_text(size = 8, colour = "red", angle = 90))
+
+
+#### How do I reorder a factor variable for plotting in ggplot?
+levs <- mult.comp.df$names.ordered[order.x]
+mult.comp.df$names.ordered <- factor(mult.comp.df$names.ordered,
+                                     levels = levs)
+
+
+
+
+
+
+#### colorblind palletes
+color blind palletes
+http://dr-k-lo.blogspot.com/2013/07/a-color-blind-friendly-palette-for-r.html
+http://www.cookbook-r.com/Graphs/Colors_%28ggplot2%29/
+
+
+
+
+# remove grey background from facet label
+http://stackoverflow.com/questions/14185754/remove-strip-background-keep-panel-border
+
+ggplot(mtcars, aes(mpg, hp)) + geom_point() +
+  facet_wrap(~carb, ncol = 3) + theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_blank(),
+        panel.border = element_rect(colour = "black"))
+
+
+
+
+#mult.comp.df$names <- with(mult.comp.df, reorder(names, coefficients, function(x) -order(x)))
+
+
+
+
+
+
+
+Load ggplot package
+```{r}
+library(ggplot2)
+```
+
+Plot distribution of clutch sizes in ggplot
+```{r}
+qplot(clutch.sz,
+       data = data)
+```
+
+
+
+Add line at 6 for LOWA
+```{r}
+qplot(clutch.sz,
+       data = data) + geom_vline(xintercept = 5)
+```
+
+
+
+Add labels
+```{r}
+qplot(clutch.sz,
+       data = data) + 
+  geom_vline(xintercept = 5) +
+  xlab("Clutch size") +
+  ylab("Count") +
+  ggtitle("Distribution of clutch sizes, data 1992")
+```
+
+
+
+
+Make background white
+```{r}
+qplot(clutch.sz,
+       data = data) + 
+  geom_vline(xintercept = 5) +
+  xlab("Clutch size") +
+  ylab("Count") +
+  ggtitle("Distribution of clutch sizes, data 1992") +
+  theme(axis.text=element_text(size=18),
+        axis.title=element_text(size=22,face="bold")) + 
+  theme_bw()
+```
+
+
+
+
+
+Plot as density curve
+```{r}
+qplot(clutch.sz,
+       data = data,
+      geom = "density") + 
+  geom_vline(xintercept = 6) +
+  xlab("Clutch size") +
+  ylab("Count") +
+  ggtitle("Distribution of clutch sizes, data 1992") +
+  theme(axis.text=element_text(size=18),
+        axis.title=element_text(size=22,face="bold")) + 
+  theme_bw()
+```
+
+
+
+
+Plot as separate density curve for each nest type group
+```{r}
+qplot(clutch.sz,
+       data = data,
+      geom = "density",
+      color = group,
+      group = group) + 
+  geom_vline(xintercept = 6) +
+  xlab("Clutch size") +
+  ylab("Count") +
+  ggtitle("Distribution of clutch sizes, data 1992") +
+  theme(axis.text=element_text(size=18),
+        axis.title=element_text(size=22,face="bold")) + 
+  theme_bw()
+```
+
+
+
+
+
+
+
+
+Plot distribution of clutch sizes by FORAGING site
+```{r}
+qplot(clutch.sz,
+       data = data,
+      facets = . ~ foraging.site)
+```
+
+
+
+Use facet wrap
+```{r}
+qplot(clutch.sz,
+       data = data) +
+  facet_wrap(~foraging.site)
+```
+
+
+
+
+
+Plot distribution of clutch sizes by habitat group
+```{r}
+qplot(clutch.sz,
+       data = data,
+      facets = . ~ group)
+```
+
+
+Boxplot
+```{r}
+qplot(y = clutch.sz,
+      x = group,
+      geom = "boxplot",
+       data = data) +
+  geom_hline(yintercept = 6)
+```
+
+
+
+Incubation period vs. predation
+```{r}
+qplot(y = inc.dur,
+      x = pred,
+      data = data)
+```
+
+
+
+
+
+
+Plot adult survival versus duration of incubation in ggplot
+```{r}
+qplot(y = surv.adult,
+      x = clutch.sz,
+      data = data)
+```
+
+
+
+
+
+
+
+
+
+Plot adult survival  versus duration of incubation in ggplot
+```{r}
+qplot(y = surv.adult,
+      x = inc.dur,
+      data = data)
+```
+
+
+Add a trend line
+```{r}
+qplot(y = surv.adult,
+      x = clutch.sz,
+      data = data,
+      geom = c("point","smooth"))
+```
+
+
+
+Color code each group
+```{r}
+qplot(y = surv.adult,
+      x = clutch.sz,
+      data = data,
+      color = group)
+```
+
+
+Make size of points bigger
+```{r}
+qplot(y = surv.adult,
+      x = clutch.sz,
+      data = data,
+      color = group,
+      size = 4)
+```
+
+
+
+Add trend line to each group
+```{r}
+qplot(y = surv.adult,
+      x = clutch.sz,
+      data = data,
+      color = group,
+      geom = c("point","smooth"),
+      method = "lm",
+      se = FALSE,
+      size = 4)
+```
+
+
+
+
+
+
+
+
+
+Figure out which species have "warbler" in their name
+data$warbler <- "not warbler"
+data$warbler[grep("Warb", data$spp)] <- "warbler"
+
+```{r}
+qplot(y = clutch.sz,
+      x = data$warbler,
+      geom = c("boxplot","point"),
+      data = data) + geom_hline(yintercept = 5)
+```
+
+
+
+
+
+

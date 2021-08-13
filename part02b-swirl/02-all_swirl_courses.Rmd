@@ -1,0 +1,226 @@
+# A guide to current swirl tutorials 
+
+Below are the names of the swirl tutorials which are most relevant to new R users, how to download them and the names of the units within each tutorial 
+
+## Regression Models: The basics of regression modeling in R (Team swirl)
+
+Installation:
+```{r, eval = F}
+swirl::install_course("Regression Models")
+```
+
+**Units:**
+
+1. Introduction
+1. Residuals
+1. Least Squares Estimation
+1. Residual Variation
+1. Introduction to Multivariable Regression
+1. MultiVar Examples
+1. MultiVar Examples2
+1. MultiVar Examples3
+1. Residuals Diagnostics and Variation
+1. Variance Inflation Factors
+1. Overfitting and Underfitting
+1. Binary Outcomes
+1. Count Outcomes
+
+
+## Statistical Inference: The basics of statistical inference in R (Team swirl)
+
+Installation:
+```{r, eval = F}
+swirl::install_course("Statistical Inference")
+```
+
+**Units:**
+
+1. Introduction
+1. Probability1
+1. Probability2
+1. ConditionalProbability
+1. Expectations
+1. Variance                
+1. **CommonDistros**           
+1. Asymptotics
+1. **T Confidence Intervals**
+1. **Hypothesis Testing**     
+1. **P Values**               
+1. Power
+1. **Multiple Testing**       
+1. **Resampling**          
+
+
+## Exploratory Data Analysis: The basics of exploring data in R (Team swirl)
+
+Installation
+```{r, eval = F}
+swirl::install_course("Exploratory Data Analysis")
+```
+
+
+1. Principles of Analytic Graphs
+1. Exploratory Graphs
+1. Graphics Devices in R
+1. Plotting Systems
+1. Base Plotting System
+1. Lattice Plotting System
+1. Working with Colors
+1. GGPlot2 Part1
+1. GGPlot2 Part2
+1. GGPlot2 Extras
+1. Hierarchical Clustering
+1. K Means Clustering
+1. Dimension Reduction
+1. Clustering Example
+1. CaseStudy
+
+## Getting and Cleaning Data (Team swirl)
+
+Installation
+```{r, eval = F}
+swirl::install_course("Getting and Cleaning Data")
+```
+
+**Units**
+1: Manipulating Data with dplyr
+1: Grouping and Chaining with dplyr
+1: Tidying Data with tidyr
+1: Dates and Times with lubridate
+
+## Advanced R Programming (Roger Peng)
+
+```{r, eval = F}
+swirl::install_course("Advanced R Programming")
+
+```
+
+
+1. Setting Up Swirl
+1. Functions
+1. Functional Programming with purrr0
+
+## The R Programming Environment (Roger Peng)
+
+```{r, eval = F}
+swirl::install_course("The R Programming Environment")
+
+```
+
+1. Setting Up Swirl
+1. Basic Building Blocks
+1. Sequences of Numbers
+1. Vectors
+1. Missing Values
+1. Subsetting Vectors
+1. Matrices and Data Frames
+1. Logic
+1. Workspace and Files
+1. Reading Tabular Data
+1. Looking at Data
+1. Data Manipulation
+1. Text Manipulation Functions
+1. Regular Expressions
+1.  The stringr Package
+
+## Regular Expressions (Jon Calder)
+
+Installation:
+```{r, eval = F}
+swirl::install_course("Regular Expressions")
+```
+
+**Units**
+
+1. Introduction
+1. Regex in base R
+1. Anchors
+1. Character Classes
+1. Groups and Ranges
+1. Quantifiers
+1. Applied Examples
+
+## A (very) short introduction to R (Claudia Brauer)
+
+```{r, eval = F}
+swirl::install_course("A_(very)_short_introduction_to_R")
+```
+
+The author notes: 
+>"Thiscourse is based on a non-interactive tutorial with the same name, which can be downloaded from www.github.com/ClaudiaBrauer/A-very-short-introduction-to-R. The contents are the same (with a few exceptions), so you can open the pdf version alongside to look up how to do something you learned before or browse through the references on the last two pages."
+
+This tutorial has 3 modules.  The first is introductory.  The others get into more details tasks, such as sourceing .R file scripts.
+
+
+
+<!-- Data Science and R -->
+<!-- source("http://wush978.github.io/R/init-swirl.R") -->
+
+<!-- Google Forms Course -->
+<!-- Sean Cross -->
+<!-- "An example course that instructors can use as a template for collecting students’ progress through a swirl course. This approach is recommended for courses that are taught in person." -->
+<!-- swirl::install_course_github("seankross", "Google_Forms_Course") -->
+
+
+## R Programming: The basics of programming in R (team swirl)
+
+
+1. Basic Building Blocks      
+1. Workspace and Files
+1. Sequences of Numbers       
+1. Vectors
+1. Missing Values             
+1. Subsetting Vectors
+1. Matrices and Data Frames   
+1. Logic
+1. Functions                 
+1. lapply and sapply
+1. vapply and tapply        
+1. Looking at Data
+1. Simulation                
+1. Dates and Times
+1. Base Graphics
+
+
+The key vocabulary, concepts and functions  covered in this tutorial are:
+
+* programming language
+* variable
+* `+`, `-`, `/`, and `^`
+* sqrt()
+* abs()
+* assignment operator
+* <-
+* help files
+* vector
+* c() function ("concatenate", "combine")
+* element wise operation ("element-by-element")
+* recycling
+* vectorized operations (not discussed in those terms)
+* up arrow to view command history
+* tab completion ("auto-completion")
+
+```{r, echo = F, eval = F}
+# all commands used
+5 + 7
+x <- 5+7
+x
+x-3
+y <- x-3
+z<-  c(1.1, 9, 3.14)
+?c
+z
+c(z, 555,z)
+z*2+100
+my_sqrt <- sqrt(z-1) # results in vector
+my_sqrt
+my_div <- z/my_sqrt
+c(1,2,3,4) + c(0,10) # vector recycling
+c(1, 2, 3, 4) + c(0, 10, 100)
+z*2+1000 # via up arrow
+```
+
+
+
+
+

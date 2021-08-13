@@ -1,0 +1,16 @@
+--- 
+title: "Get R Done!  A travelers guide to the world of R"
+author: "Nathan L. Brouwer"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+#bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "A travelers guide to getting started - and flourishing - as an R user."
+---
+
+# Preface {-}
+
+This book will introduce you to key aspects of the R ecosytem.
+

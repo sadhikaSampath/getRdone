@@ -1,0 +1,6 @@
+# Rtools
+
+Rtools can occasionally cause installation problems.  Rtools is an external program to R and is not a library, though error messages don't indicate this.  For background on Rtools see
+
+The why and the how of installing Rtools
+https://nugaemeae.wordpress.com/2012/08/30/the-why-and-the-how-of-installing-rtools/

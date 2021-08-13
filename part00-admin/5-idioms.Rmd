@@ -1,0 +1,8 @@
+# R Idioms
+A note on programming idioms and dialects in R:
+
+R is an incredibly flexible programming language, which has many plusses but also many drawbacks.  One of the drawbacks is that there are many different ways to do the same thing in R, which can be very confusing to new users, especially when you delve into internet resources.  You can google "how to do xxxx in R" and get 5 results which each use a slightly different coding approach or perhaps completely different dialect of R.
+
+ 
+
+RStudio promotes the use of the standardized "Tidyverse'' series of packages.  This helps standardize approaches to coding and problem solving across a large number of tasks.  The foundational packages of the tidyverse are the graphics package ggplot2 and the data manipulation package dplyr.  ggplot2 has become probably the most powerful graphics approach in R (and has been cloned over to Python I believe), but it debated whether its easier to start off using ggplot2 and invest in its long-term use, or start out with classic R graphs ("base R graphics'') which are much easier to get started with but much harder to ultimately master, and ultimately less powerful than ggplot2.  ggplot2 has exploded in popularity over the last 5 years, but lots of older material on the internet and book use base R graphics.

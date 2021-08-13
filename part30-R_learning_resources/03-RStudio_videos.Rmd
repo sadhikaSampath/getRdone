@@ -1,0 +1,29 @@
+# RStudio videos
+
+RSTudio provides a number of videos to help you at various stages of your coding journey with R.
+
+## Basic 
+
+* Installing R: https://vimeo.com/203516510
+* Installing RStudio: https://vimeo.com/203516968
+* Installing packages:l https://vimeo.com/203516241
+
+Also remember the RStudio Cloud Primers
+https://learnr-examples.shinyapps.io/ex-setup-r/#section-welcome
+
+## Intermediate
+
+* RMarkdown https://rstudio.com/resources/webinars/getting-started-with-r-markdown/
+* RMarkdown Notebooks https://rstudio.com/resources/webinars/introducing-notebooks/
+
+## Intermediate-Advanced 
+
+* Code smells and feels https://rstudio.com/collections/additional-talks/code-smells-and-feels-user2018-brisbane/
+* Programming in R https://rstudio.com/resources/webinars/programming-part-1-writing-code-in-rstudio/
+
+
+## Other interesting videos
+
+* [Education theory for data science](https://rstudio.com/resources/webinars/what-every-data-scientist-should-know-about-education/)
+
+

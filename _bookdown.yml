@@ -1,0 +1,6 @@
+book_filename: "getRdone"
+delete_merged_file: true
+rmd_subdir: true
+language:
+  ui:
+    chapter_name: "Chapter "

@@ -1,0 +1,129 @@
+# A basic guide to trouble shooting problems with R code
+
+Something in R not working?  Weird error message?
+Go through this list of steps to try to resolve the problem. 
+
+## Did you run a line of code without a ")" at the end?
+
+Look at your code in the console.  Is there a little "+" at the far left?  R is probably waiting for a complete line of code.  Click into the console, press ESC, add the ")", and try again
+https://twitter.com/lobrowR/status/1179822388256493568/photo/1
+
+## Is R waiting for user input?
+
+Occasionally R will ask for user input via a pop up Window or within the console itself.  Look in the console see if you need to give a numeric response (option 1, option 2) or look for the GUI's popup.
+https://twitter.com/lobrowR/status/1179822393792946176/photo/1
+
+## The above problem often happens when installing packages in a RMarkdown (.Rmd) file and its set to render "chunk" output inline.  Check what's going on in the console.
+
+## Is `library(package_name)` not working?
+Make sure you've spelled the name of the package correctly. Face with tears of joy
+
+(The error message is a bit ambiguous - it could be read as saying you haven't downloaded that package, rather than such a package doesn't actually exist at all).
+https://twitter.com/lobrowR/status/1179822401044938752/photo/1
+
+## Are you trying to use a package you just installed?  
+
+Often when you first install a package (download it from CRAN) you need to re-start R.  This can be done quickly with Ctrl+Shift+F10
+https://pbs.twimg.com/media/EF-SOYDU8AEovQ-?format=png&name=small
+
+## Is R crashing / code not working when you use a particular function from a package?
+
+Try re-installing the package
+
+install.packages("the_package")
+library(the_package)
+
+(you may have to then restart)
+
+Your version of the package may be out of sync w/ other packages or w/ R
+
+## Are you using RMarkdown and having the output of chunks displayed "inline".  
+Set it to "console" and try again.  On rare occasions knitr/rmarkdown appear to get cranky.
+
+https://pbs.twimg.com/media/EF-SOwSU4AAeq9e?format=png&name=900x900
+
+## Can't figure out what the problem is? 
+
+Try updating commonly used packages.
+
+You can do this by hand with 
+```{r, eval = F}
+install.package(...)
+```
+
+Be sure to restart R when its done.
+
+
+You can update ALL your packages with 
+```{r, eval = F}
+update.packages(ask = F)
+```
+
+I don't recommend this; it takes several minute on my computer because I have MANY packages.  But if you have time to go get something to drink while R downloads it can't hurt.  Be sure to restart R when its done.
+
+##  Still problems? Re-install R and/or RStudio
+
+Before re-installing R, save a list of all your packages (otherwise you'll have to do it by hand)
+
+```{r, eval = F}
+packs <- installed.packages()
+packs <- mypacks[c(1:2),]
+
+# save packages as .csv or other format
+# reload .csv
+
+install.packages(packs[,1])
+```
+
+## STILL problems? Here are a number of suggestions
+
+Try your code on RStudio Cloud, which lets you use different versions of R (you'll have to install relevant packages)
+https://pbs.twimg.com/media/EF-SPRGUwAA7HO2?format=png&name=900x900
+
+## You can toggle between different versions of R in RStudio if a) You are windows and b) you've already installed those versions of R.  This is done through the options menu
+
+https://t.co/iRmJOgSHF3?amp=1
+https://pbs.twimg.com/media/EF-SPleUcAAnT5J?format=png&name=900x900
+
+## Switching between versions of R takes slightly  more work on a Mac.  You may want to try out Rswitch
+
+https://support.rstudio.com/hc/en-us/articles/200486138-Changing-R-versions-for-RStudio-desktop
+
+https://mac.r-project.org/
+
+https://twitter.com/lobrowR/status/1179822434901315584/photo/1
+
+## Try running the code on a different computer
+
+This may be especially useful if you are using a Mac, since there are a few more quirks to Macs than PCs.  Occasionally problems will be associated with a particular operating system.
+
+## Update your computer's operating system (OS)
+
+## PC users: Make sure you are using 64 bit R not 32 bit
+
+
+## Google the error message and look for responses on formums
+
+For all problems, googling the error message is your best first step for finding help - its what the "computer person" who helps you is going to do 
+
+https://pbs.twimg.com/media/EF-SQgtUUAAF2RA?format=png&name=900x900
+
+## Did you reopen a saved workspace?
+
+Reopening an old workspace (as is the default in R...) can create problems.  Its best to set RStudio to not save your workspace on closing / don't reload workspace on load
+
+https://community.rstudio.com/t/defaults-of-saving-and-restoring-workspace/939
+
+
+## Have you updated a package recently?
+
+Be aware that updating packages can sometimes break older code / when a new version of R is released there may be a lag b/f packages get updated to be compatible w/it.  You can install old vs of packages & of R if necessary; also checkout the packrat pckg
+
+
+Good luck!  I often test the code for my teaching packages on three computers, and I still run into problems when I release things out into the wild. Usually you don't have to go much beyond updating a package, or updating R.
+
+## Try the searcher and errorist package
+
+The searcher and errorist  packages looks like a great tool for investigating error messages
+
+https://cran.r-project.org/web/packages/searcher/readme/README.html

@@ -1,0 +1,29 @@
+# Where R lives and breaths
+
+R's Installation directory and "working directory"
+Now that you've gotten R installed I want you to briefly take stock of some things.  Read the content below, watch the video, then complete the Software Checkpoint on the next page.
+
+When using R there are several levels of where software, files, and R's working memory are located and organized.
+
+First, R is a program that lives on your hard drive.  Occasionally it will get installed someplace we don't want.  As I show in the video, we can check where R is located using the R.home() function.  This isn't a commonly used function but is useful for troubleshooting problems.
+
+Second, when R is running it has a working directory where any files you save will be stored.  As I show in the video you can check where your working directory is using get.wd().    When you get started, you don't have to worry much about this, but eventually, it will be very important to make sure you know where your files are going so you can find them back!
+
+Third, often in R we create objects which contain information.  These are made using R's assignment operator: <-, which is a "less than" sign and a dash (or an alligator eating a jumping fish, whichever you prefer).  To assign something to R's working memory I do this
+
+my.object <- "something"
+
+I can see everything I've assigned to R's working memory using the command ls().
+
+Watch the video below for a bit more info on these things and an outline of a Software Checkpoint assignment.
+
+The code used in the video is below.  You can just copy and paste it into your R console if you have any trouble.
+
+my.name <- "Your name" #character string
+is(my.name)
+my.name
+home <- R.home()
+home
+wd <- getwd()
+wd
+ls()

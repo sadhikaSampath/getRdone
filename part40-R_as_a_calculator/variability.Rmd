@@ -1,0 +1,60 @@
+# Variability
+
+* min()
+* max()
+* var()
+* sd()
+* range()
+* nrow() or length() (for sample size)
+
+
+## Preliminaries
+
+### Load packagtes
+```{r}
+library(compbio4all)
+```
+
+### Load data
+
+```{r}
+data(frogarms)
+```
+
+
+range() returns two values in a vector
+```{r}
+range(frogarms$mass)
+```
+
+
+Note that R doesn't return a very common statistic, the standard error (SE).  This can be calculated by hand.
+
+```{r}
+sd(frogarms$mass)/sqrt(length(frogarms$mass))
+```
+
+
+Write a function
+
+```{r}
+my_sd1 <- function(dat_column){
+sd(dat_column)/sqrt(length(dat_column))
+}
+
+my_sd2 <- function(dat, column){
+sd(dat[,column])/sqrt(length(dat[,column]))
+}
+
+
+my_sd3 <- function(dat, column, digits.round = 3){
+se <- sd(dat[,column])/sqrt(length(dat[,column]))
+round(se, digits = digits.round)
+}
+
+```
+
+
+```{r}
+my_sd2(dat = frogarms, column = "mass")
+```

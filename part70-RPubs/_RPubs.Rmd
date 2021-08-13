@@ -1,0 +1,32 @@
+#  Getting set up for using RPubs
+
+This next video will show you how to get RStudio set up for rendering .Rmd files to the website RPubs.  Set up RStudio with the necessary packages, render a basic .Rmd file, and publish it to RPubs.  You'll have to create an RPubs account.
+
+Outline
+
+Follow the step on the previous page about RMarkdown rendering
+
+Then, when your webpage gets generated, click "publish" in the upper right-hand part of the webpage R made for you
+
+Screen Shot 2020-08-29 at 1.23.36 AM.png
+
+As discussed in the video below, you'll be prompted to install more packages.  Click ok.  
+
+When prompted, select to publish to Rpubs
+
+Screen Shot 2020-08-29 at 1.26.13 AM.png
+
+ 
+
+Make an RPubs account, give your publication a temporary name, and publish it.
+
+Take a screen grab and submit it to the Software Check Point on the next page.
+
+
+## Video
+
+```{r, echo = F}
+knitr::include_url("https://youtu.be/XFOgeLKL-l8")
+```
+
+

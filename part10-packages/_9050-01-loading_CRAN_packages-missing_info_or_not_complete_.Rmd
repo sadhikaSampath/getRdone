@@ -1,0 +1,80 @@
+# (PART) Getting Software & Data Into R {-}
+
+### {-}
+
+
+
+# Loading packages from CRAN
+
+```{r include=FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE,fig.height = 3, fig.width = 5)
+```
+
+
+
+
+## Introduction
+
+
+
+### Learning objectives
+
+This exercise will introduce students to
+
+1. the concept of an **R Package** (aka **library**)
+1. how to load R packages using the library() function
+1. the R plotting package **ggplot2**
+1. cool add-ons to ggplot2, **ggpubr** and **cowplot**
+
+### Learning goals
+
+By the end of this exercise students should be able to 
+
+* locate and download packages from the CRAN website using RStudio
+* recognize the R functions used to download and install packages.
+
+
+
+
+### Packages 
+
+* MASS
+* ggplot2
+* ggpubr
+* cowplot
+
+### Potential hangups
+
+* quoted vs. unquoted text (eg qplot vs. ggpubr syntax)
+
+
+## Loading packages that come with base R
+
+What you download from CRAN is **base R** (also known as the **base distribution**).  Many functions are called **base functions** because they are hard-wired into R.  
+
+
+
+
+### Loading packages with the library() function
+
+When a function is already downloaded to your computer, you explicitly load it into R's working memory using the library() command.
+
+```{r}
+library(MASS)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

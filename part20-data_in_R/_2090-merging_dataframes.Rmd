@@ -1,0 +1,54 @@
+## Mergine data frames
+
+Merge the lynx and sunspot dataframes
+
+
+
+
+
+
+```{r}
+number <- as.vector(lynx)
+```
+
+
+```{r}
+year <- 1821:1934
+```
+
+
+```{r}
+plot(number ~ year, type = "l")
+```
+
+
+```{r}
+data(sunspot.year)
+```
+
+```{r}
+sunspots <- as.vector(sunspot.year)
+```
+
+
+```{r}
+year.sunspots <- 1700:1988
+```
+
+
+```{r}
+plot(sunspots ~ year.sunspots, type = "l")
+```
+
+
+```{r}
+par(mfrow = c(2,1))
+plot(number ~ year, type = "l")
+plot(sunspots ~ year.sunspots, type = "l",xlim = c(1821, 1934))
+```
+
+
+
+## Exercise - merge in sunspot area
+
+fpp2	sunspotarea	Annual average sunspot area (1875-2015)

@@ -1,0 +1,18 @@
+## Quickstart Guide to R {#quickstartsoftware}
+ 
+Here’s an outline of the key steps to getting up and running using *R*.  If you've programmed before then this should get you started.  If you need more help -- or when you need more help! -- that's what the rest of this guide is for.
+ 
+1. Get an account with [RStudio Cloud](https://rstudio.cloud/):  https://rstudio.cloud/
+  + Look over the RStudio Cloud [Primers](https://rstudio.cloud/learn/primers) and return to them as needed.
+1. Download the R desktop software
+  + [Windows]:(https://cran.r-project.org/bin/windows/base/ ): https://cran.r-project.org/bin/windows/base/ 
+  + [Mac](https://cran.r-project.org/bin/macosx/): https://cran.r-project.org/bin/macosx/  
+1. Download the [RStudio IDE](https://bit.ly/RSdesktop). https://bit.ly/RSdesktop (there are Mac and PC versions).
+1. Download the `swirl` packages using the command `install.packages(swirl)`, then start exploring the tutorials.
+
+```{r, echo = F}
+knitr::include_url("https://docs.google.com/presentation/d/1-RpTJL0fL9dLh3tcx3vxs0u6Yz7HsSow73XNsPns_lA/edit?usp=sharing")
+```
+
+
+

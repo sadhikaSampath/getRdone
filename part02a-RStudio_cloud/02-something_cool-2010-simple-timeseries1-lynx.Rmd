@@ -1,0 +1,408 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# (BOOK) Getting started with R {-}
+
+### {-}
+
+**NEW  text**
+
+In Book 2 we'll get started using R.  We'll focus on jumping in with some simple examples that tell interesting scientific stories so we can get a sense for the power of R.  Later, we'll dig deeper - bit by bit - not the details.  Like any language R is a versatile tool for communication, but has conventions, quirks, idioms and dialects that new users have to become comfortable with.  In general my goal in Book 2 will be to help you get a general sense of R, let you see a bit of the wild -- and overwhelming -- world of possibilities for how R is written, and outline the more specific aspects I'll use to help facilitate learning. 
+
+We'll have three specific goals:
+
+1. Run some initial, simple commands in R to see how it works.
+1. Take a broad tour of the wide world of R so see the many faces of R code you may encounter in the wild.
+1. Highlight the particular way coding conventions and idioms of R I'll use.
+1. Introduce briefly some of the different ways you can get data into R.
+
+If you find yourself getting confused or overwhelmed don't panic  A goal of this section is to prevent *future* confusion by giving you a sense for the many different ways R can be written and that you will eventually encounter on the internet or other books, and to contrast them with what you'll use in this book.  Here, I've worked to keep things consistent and to either use the simplest methods to accomplish the goal or to carefully break down hard tasks or concepts so you can master them.  Once you start typing into your search engine "R code ..." you will get MANY different types of code which you may not yet be prepared to work with.  
+
+
+
+
+# Hello R!  A first encounter with data visualization
+
+## Key Ideas
+
+* **Commands**: R uses simple typed commands to do *everything.*
+* **Data**: loading data that comes with R using the `data()` command.
+* **Plotting**: Making simple plots with the `plot()` command.
+
+## Data in R
+
+```{r, echo = F}
+# TODO: re-write for active learning
+```
+
+
+We'll start our exploration of R with a classic dataset from ecology and statistics showing one of the most striking patterns in wildlife biology: (**population cycles**)[https://en.wikipedia.org/wiki/Population_cycle].  Populations are always changing, whether it is declines in the number bacteria in our gut after we take an antibiotic or increases in 
+raptor species after highly toxic pesticides were banned in the mid-twentieth century.
+
+```{r, echo = F, fig.cap = "Growth of Eagle population in Pennsylvania, USA"}
+# TODO: add plots of the above
+library(compbio4all)
+data("eaglesPA")
+par.default <- par()
+par.mar <- par()$mar
+par(mar = c(5,4.1,1,1))
+plot(eaglesPA, xlab = "Year", ylab = "Number of eagles", type = "b", 
+     xlim = c(1990,2003),
+     ylim = c(0,75),
+     pch = 16,
+     col = 4, 
+     lwd = 2,
+     cex = 2)
+```
+
+
+In stark contrast, a few unique animals populations show dramatic **oscillations**, with rapid increases soon followed by dramatic drops, as if the population were on a roller coaster.  One such population are Canada lynx (*Lynx canadensis*) in Canada.  
+
+Lynx  are (unfortunately) prized for their soft fur.  In years when there are many lynx, trappers kill many lynx; in years when there are few lynx, trappers kill few  (however, the number of lynx killed by humans does not contribute to the cycle).  Records from fur industry have been compiled by ecologists for over a century to investigate what drives changes in lynx numbers.  The table below shows a snapshot of these data, starting from the earliest available records in 1821.
+
+```{r echo = F}
+data(lynx)
+lyxn.df <- data.frame(year = 1821:1934,
+                      lnyx.population = as.vector(lynx))
+
+pander::pander(head(lyxn.df,15),"Number of lynx trapped in Canada")
+```
+
+<!-- ACTIVE LEARNING: Draw a sketch of the data from this snapshot of the table -->
+
+
+You've probably plotted data like this by hand using graph paper, point by point by locating the x-y coordinates.  When plotting data like this, time (in this case "year") goes on the horizontal **x-axis**, and the changing variable (lynx.population) goes on the vertical **y-axis**.    In a **spreadsheet**, you could highlight these columns and click on the "Make graph" icons to make the initial plot, then adjust things by clicking on parts of the plot you want to change.
+
+<!-- TODO: "If you're not familiar with this process..."  Add example of excel plot.  add image? video? -->
+
+Spreadsheets are said to operate under the principle of **"What You See Is What You Get"**, or **WYSIYGY**.  They use a fully mouse-drive **Graphical User Interface (GUI)** where everything is done by pointing and clicking.  Every time you make a plot you do these steps.
+
+R is *very* different - you only see things when you want to see them and you do everything via typed commands.  This is a large paradigm shift for most people, so we'll start very very slow.  
+
+## Loading data that comes with R
+
+The Canada lynx is  not just famous with ecologists but also familiar to statisticians who have frequently used it to test statistical methods for studying **time series** - basically long-term datasets of the same thing.  Because of this, these lynx data are embedded within R and easy to access: all you have to do is type  `data(lynx)` into the console and press the "Enter" key.  
+
+```{r}
+data(lynx)
+```
+
+You might be wondering "*Ok, now what?*" because nothing apparently happened.  What you've done, though is loaded the `lynx` data into R's active memory, where it will wait for you next command.  
+
+Loading your own data into programs such as R can be a pain, so I'll use techniques such as use the `data()` command to make things as smooth as possible.  I'll also introduce other methods, such as loading small datasets using code and downloading them from the internet.  I'll also provide a thorough overview in the Appendices.
+
+## Plotting simple datasets with `plot()`
+
+Now in the console type `plot(lynx)` and press enter.  You should see readout like what you see below ...
+
+```{r}
+plot(lynx)
+```
+
+<!-- ACTIVE LEARNING - how would you describe this -->
+
+... and this intriguing plot.  The x-axis is time from the early 1800s to the early 1900s, and the y-axis is the number of lynx pelts.  This pattern continues to today, and it causes have kept ecologists working hard for over 100 years.  Moreover, statistical analyses of data such as these have similarly kept statisticians busy.
+
+This is a simplified example, but that's the basics of working in R:
+
+1. Load data
+1. Use commands like `plot` tell R to do something with. 
+
+For most of this book we'll use data that's been mostly pre-packaged for you to work with and loaded using the `data()` command.  Real data analyses require more steps, and later in the book we'll briefly cover them so you are familiar with them when you see them elsewhere; further details can also be found in the Appendix.
+
+## Commands in R
+
+The words "data" and "plot" in R represent **commands**; R associates specific code and therefore actions with these words  To indicate commands in the text I'll always write it like this: `data()`.  The parentheses are very important in R; forget one of them, and things won't work.  After the word representing the command there is always a **parenthesis** `(`.  Other things such as the name of a dataset go after the first parenthesis, and the command is completed with a matching parenthesis `)`.  To emphasis that things using go within the parentheses I will often write commands like this `data(...)`, where the `...` in this case is the name of a dataset. 
+
+
+
+<!-- TODO: add info about errors, hung code, etc, show screen shot? should probalby make this a separate chapter so as to  not kept bogged down .  Put in boxed section? -->
+
+In some cases you can issue a command, like `data()`, and R does something only behind the scenes.  Often, though, we'll elicit a reaction from R, either data will appear in the Console or a plot will be created.
+
+
+## The structure of commands in R
+
+Our use of the `plot()` command was pretty standard; there were two pieces to it:
+
+1. The command, `plot()`
+1. The data, `lynx`
+
+Data in R -- and especially in computational biology -- can take on many forms, which we'll cover as needed as throughout the book.  All data is presented in R by an **object** stored behind the scenes in R's memory.  The fact that data in R is usually resting out of view until we do something explicitly with it can take some getting used to, since usually we work with data printed out on a page or displayed in a spreadsheet.  
+
+
+<!-- ### TODO: show picture,  -->
+<!-- ## left - spreadsheet of data -->
+<!-- ## right - blank screen -->
+<!-- ## "data ready to be plotted in in a spreadsheet versus R -->
+
+Commands in R almost always include an object within them.  Next we'll consider something else that go with commands : **arguments**.
+
+## Arguements in R
+
+A common mathematical operation when doing data analysis is taking the **log** of something.  (For now we won't worry about what the log is or why we use it' we'll come back to this little bit of math frequently though).  We can tell R to plot the log of our lynx data by adding the argument `log = "y"` to the `plot(...)` command.  This alters the graph a bit which, for  some particular data analysis purposes, will come in handy (more on that later).
+
+```{r}
+plot(lynx, log = "y")
+```
+
+<!-- ACTIVE LEARNING - how would you describe this -->
+
+In the code above `log` is the argument and `"y"` is the **value** assigned to the argument.
+
+
+Arguments **always** have an equals sign with them, so I'll emphasize this by typically writing them as `argument.name = ...`.  One tricky thing about arguments is that they can take on letters, words, or numbers, and sometimes there need to be quotation marks like `log = "y"`, but not always.  
+
+Since arguments are fairly tricky, they are a common source of errors, such as forgetting `=`, or putting the value of the argument in the wrong format.
+
+## Arguements and more arguments
+
+We now have three things going on
+
+1. A **command**, `plot()`
+1. A **data object**, `lynx`
+1. An **argument**, `log = "y"`
+
+Most functions in R have multiple arguments that can be invoked  Try the following code `plot(lynx, col = 3)`. That is the `plot()` function with the argument `col = 3` added. What do you think `col = 2` means?  Try different values like 4, 5, and 6.
+
+```{r, fig.height = 4, fig.width= 6}
+plot(lynx, col = 2)
+```
+
+Now try this:  `plot(lynx, type = "p")`
+
+Note that there are quotation marks around the p.
+```{r, fig.height = 4, fig.width= 6}
+plot(lynx, type = "p")
+```
+
+Now instead of "p" use "b", which stands for "both".  What do you think the "both" is referring to?
+
+```{r, fig.height = 4, fig.width= 6}
+plot(lynx, type = "b")
+```
+
+
+<!-- ASSIGNMENT: make particular plots, match plots with code -->
+
+```{r, eval = F}
+## TODO: add followup exercises
+### R, biology
+## TODO Add as optional? cover elsewhere
+
+plot(log(lynx))
+```
+
+
+## Multiple arguments at the same time
+
+Functions can not only have multiple arguments, but they can **take on** multiple arguments at the same time.  Let's feed two arguments to `plot()`, `col = ...` and a new one, `type = ...`.  
+
+```{r}
+plot(lynx, col = 4, type = "b")
+```
+ 
+Examine the series of plots below; what do you think `type=...` is referring to?
+```{r, echo = F}
+par(mfrow = c(1,3), mar = c(2,2,2,1))
+plot(lynx, col = 4, type = "l")
+mtext('col = "l"')
+plot(lynx, col = 4, type = "p")
+mtext('col = "p"')
+plot(lynx, col = 4, type = "b")
+mtext('col = "b"')
+par(mfrow = c(1,1), mar = c(5,4.1,1,1))
+```
+
+## R commands and line breaks
+ 
+A cool thing about R is that it doesn't care about **line breaks** within a command, so I can do this if I want:
+
+```{r, eval = F}
+plot(lynx, 
+     col = 4, 
+     type = "b")
+```
+
+Or if for some reason this
+```{r, eval = F}
+plot(lynx,  col = 4, 
+     type = "b")
+```
+
+Or even this
+```{r, eval = F}
+plot(lynx,  
+     
+     col = 4, 
+     
+     
+     type = "b")
+```
+
+<!-- ASSIGNMENT: Add spaces, remove spaces -->
+
+## Code comments
+
+One thing that putting thing on multiple lines allows you do to is add **comments** to your code if you place a hashtag (aka pound symbol) in front of it.
+
+```{r}
+plot(lynx,          # data object
+     col = 4,       # color argument
+     type = "b")  # type of graph argument
+```
+
+<!-- ASSIGNMENT: Add comments, remove comments -->
+
+## A note on plotting
+
+One of the great things about R is that it can make really nice plots.  You'll soon see that there are many ways to do the same basic thing in R, and this includes making plot.  **Data visualization** is a key aspect of modern science, so its important to build up your skills, including knowing about the different ways plots are made in R.  Don't worry though - we'll build all of this up step by step.
+
+
+## Now you try it
+
+### Easy tasks
+
+Fix each line of code below so the work
+```{r, eval = F}
+plot lynx
+plot(lynx
+```
+
+```{r, eval = F, echo = F}
+# Key
+plot(lynx) # both parentheses missing
+plot(lynx  # closing parenthisis missing
+```
+
+Examine the plots below.  What does `pch = ...` do to the plot?
+```{r, echo = F}
+par(mfrow = c(1,3), mar = c(2,2,2,1),cex = 1.2)
+x.lim <- c(1824, 1833)
+plot(lynx, col = 4, type = "b", pch = 1, xlim = x.lim)
+mtext('pch = 1')
+plot(lynx, col = 4, type = "b", pch = 5, xlim = x.lim)
+mtext('pch = 5')
+plot(lynx, col = 4, type = "b", pch = 16, xlim = x.lim)
+mtext('pch = 16')
+par(mfrow = c(1,1), mar = c(5,4.1,1,1))
+```
+
+Examine the plots below.  What does `lwd = ...` do to the plot? 
+```{r, echo = F}
+par(mfrow = c(1,3), mar = c(2,2,2,1),cex = 1.2)
+x.lim <- c(1824, 1833)
+plot(lynx, col = 4, type = "b", lwd = 1, xlim = c(1824, 1833))
+mtext('lwd = 1')
+plot(lynx, col = 4, type = "b", lwd = 5, xlim = c(1824, 1833))
+mtext('lwd = 5')
+plot(lynx, col = 4, type = "b", lwd = 10, xlim = c(1824, 1833))
+mtext('lwd = 5')
+par(mfrow = c(1,1), mar = c(5,4.1,1,1))
+```
+
+
+Fix each argument below so the code works.
+```{r, eval = F}
+plot(lynx, col  1)
+plot(lynx, col = "1")
+plot(lynx, type b)
+plot(lynx, type = b)
+plot(lynx, type "b")
+plot(lynx type "b")
+plot(lynx, type =  "b)
+```
+
+
+```{r, eval = F, echo = F}
+# key
+plot(lynx, col = 1) # add = 
+plot(lynx, col = 1) # remove " "
+plot(lynx, type = "b") # add = and " "
+plot(lynx, type = "b") # add " "
+plot(lynx, type = "b") # add =
+plot(lynx, type "b")   # missing comma
+plot(lynx, type =  "b") # add closing "
+```
+
+```{r, eval = F}
+plot(lynx, col  1, type = "b)
+plot(lynx, col = "1", type = b)
+plot(lynx, pch = 1, type b)
+plot(lynx, pch 1 type = b)
+plot(lynx, lwd = "2" type "b")
+plot(lynx pch = 2, type "b")
+plot(lynx, lwd = 3 type =  "b)
+```
+
+<!-- Add questions with 3 arguments -->
+
+
+
+Split the following code between multiple lines and add a comment between each of them to indicate what the argument does.
+
+```{r, eval = F}
+plot(lynx, type = "b", pch =  2,)
+```
+
+
+```{r, eval = F, echo = F}
+# key
+plot(lynx,
+     #type of point
+     type =  "b", 
+     # type of plot: both points and lies
+     pch = 2)
+```
+
+
+### Intermediate tasks
+
+Here's a challenge: there is another dataset that comes with R called `sunspot.year` There was once a hypothesized link between the Canada lynx and sunspots that we'll explore later; right now we'll just check it out.  See if you can do the following things on your own in the R console.
+
+#### Make a simple plot {-}
+
+1. Using the `data()` command, load `sunspot.year` data into R's active memory 
+1. Plot the data.
+
+Your plot should look like this:
+
+```{r, echo = F, eval = T}
+data("sunspot.year")
+plot(sunspot.year)
+```
+
+
+#### Modify your plot {-}
+
+1. Use the `col =` argument to make the color of the line different than black.
+1. Use the `type =` argument to make the plot show points connected by a line.
+
+Your plot should look like this:
+
+```{r, echo = F, eval = T}
+plot(sunspot.year,
+     col = 2,
+     type = "b")
+```
+
+
+
+
+#### Plot on the log scale {-}
+
+Plot the sunspot data on the log scale.  Note: you will get a warnig in red text - you can ignore this.
+
+
+```{r, echo = F}
+plot(sunspot.year, log = "y")
+```
+
+
+
+
+
+

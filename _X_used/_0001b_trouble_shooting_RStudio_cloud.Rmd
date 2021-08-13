@@ -1,0 +1,22 @@
+# Troubleshooting RStudio Cloud
+Troubleshooting problems w/ RStudio Cloud:
+
+RStudio Cloud is super stable, but occasionally you can run into problems.  This seems to be most common when you have a slow internet connection.
+
+1) Refresh the browser
+
+2) Check that no pop-up blocker is active; disable for RStudio cloud
+
+3) Click out of the project & reload
+
+4) Turn off your wifi & turn it back on
+
+5) Close browser tab &  reload
+
+6) Close browser &  Restart it
+
+7) Explicitly log out of your Cloud account &  log back in
+
+8) Try a different browser (eg, use Firefox if you’ve been using Chrome)
+
+9) Update your browser (download it again, install updates etc).

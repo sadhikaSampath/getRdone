@@ -1,0 +1,59 @@
+# Readings - Navarro Chapter 3: Getting started with R
+
+Please read the indicated sections of Chapter 3 of Navarro's R book.  YOu can download it here or find the HTML version
+
+https://learningstatisticswithr.com/ (Links to an external site.)
+
+HTML version: https://learningstatisticswithr.com/book/ (Links to an external site.)
+
+(note that the HTML version doesn't have page numbers)
+
+A PDF copy with key sections highlighted is on Box.
+
+You should read most of Chapter 3, though there are several sections you can skip for now.  If a subsection is not listed you can skip it, though I generally try to explicitly say what to skip.  When you're done take the quiz on the next page.
+
+ 
+
+Part II. An introduction to R
+Chapter 3: Getting started with R (page 37)
+Read the opening paragraphs on pages 37 and 38.  You can replace the words "statistics" with "bioinformatics" , "Sequence alignment", or "sequence data management" and everything there will apply to this course.
+
+(You can skip this section "3.1 Installing R" (pg 38)  )
+
+3.1.5 Starting up R (pg 40)
+
+3.2 Typing commands at the R console
+3.2.1 Be very careful to avoid typos
+3.2.2 R is (a bit) flexible with spacing
+3.2.3 R can sometimes tell that you’re not finished yet (but not often)
+3.3 Doing simple calculations with R (page 46)
+3.3.1 Adding, subtracting, multiplying and dividing
+3.3.2 Taking powers
+3.3.3 Doing calculations in the right order
+3.4 Storing a number as a variable (pg 48)
+3.4.1 Variable assignment using <- and ->
+note: almost nobody uses "->"
+3.4.2 Doing calculations using variables
+3.4.2 Doing calculations using variables
+3.5 Using functions to do calculations (pg 51)
+3.5.1 Function arguments, their names and their defaults
+3.6 Letting Rstudio help you with your commands (pg (54)
+3.6.1 Autocomplete using “tab”
+3.6.2 Browsing your command history
+3.7 Storing many numbers as a vector ( pg 57)
+3.7.1 Creating a vector
+3.7.2 A handy digression
+(you can skip 3.7.3  " Getting information out of vectors" for now, we will return to this idea later)
+(you can skip 3.7.4 Altering the elements of a vector for now)
+3.7.5 Useful things to know about vectors (pg 59)
+3.8 (you can skip 3.8 "Storing text data" for now)
+
+3.9 Storing “true or false” data (pg 61)
+3.9.1 Assessing mathematical truths
+3.9.2 Logical operations
+3.9.3 Storing and using logical data
+3.9.4 Vectors of logicals
+(you can skip "3.9.5 Applying logical operation to text" for now)
+3.10 (you can skip "3.10 Indexing vectors" for now)
+3.11 Quitting R (pg 69)
+3.12 Summary

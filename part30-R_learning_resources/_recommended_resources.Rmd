@@ -1,0 +1,23 @@
+# Recommend resources
+
+Averick, M.  2018.  Differentiating R from RStudio.  https://community.rstudio.com/t/differentiating-r-from-rstudio/8009?u=mara (Links to an external site.)
+
+Thieme, N.  2019.  R generation (Links to an external site.).  Significance.  PDF. Link: https://rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1740-9713.2018.01169.x (Links to an external site.).  
+
+Stats & Stories.  2018.  Happy Birthday to R (Interview with Nick Thieme).  Link (audio & transcript) (Links to an external site.).  Also available on major podcast apps. 
+
+Stats & Stories.  2018.  R R R R R ... Not Just For Pirates Anymore (Interview with Hadley Wickham).  Link (audio & transcript) (Links to an external site.).
+
+
+How Histograms Work https://bit.ly/biohistograms,  (Links to an external site.) 
+
+How to Read & Use a Boxplot https://bit.ly/bioboxplots (Links to an external site.)
+
+
+
+
+R Cookbook
+http://www.cookbook-r.com/
+
+R - Introduction to selected topics
+https://ssc.wisc.edu/sscc/pubs/R_intro/book/1-base-r.html

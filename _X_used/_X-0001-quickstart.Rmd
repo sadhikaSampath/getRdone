@@ -1,0 +1,16 @@
+Installation Quick Start
+Here’s an outline of the key steps to getting R and RStudio running.  If you are comfortable downloading and installing software from the internet then you shouldn't have too much trouble if you just follow the links below. 
+
+Once you're done, go to the assignments ("Software installation checkpoints") for each piece of software and upload the appropriate screenshot.   
+
+If you need more help, go through each page of this module for more detailed instructions, videos, and suggestions.  
+
+Step 1: Get an account with RStudio Cloud (Links to an external site.):  https://rstudio.cloud/ (Links to an external site.)
+
+Step 2: Download the R desktop Software
+
+Windows (Links to an external site.): https://cran.r-project.org/bin/windows/base/ (Links to an external site.)
+
+Mac (Links to an external site.): https://cran.r-project.org/bin/macosx/ (Links to an external site.). 
+
+Step 3: Download the RStudio IDE (Links to an external site.). https://bit.ly/RSdesktop (Links to an external site.) (there are Mac and PC versions).

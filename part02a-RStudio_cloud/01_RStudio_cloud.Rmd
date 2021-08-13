@@ -1,0 +1,47 @@
+# RStudio Cloud
+
+The easiest way to get started using R is to run it through your web browser using [RStudio Cloud](https://rstudio.cloud/), which offers free accounts (https://rstudio.cloud/) with up to 15 hours of use per month. I believe Firefox and Chrome work best for using RStudio Cloud - nobody seems to get along well with Safari, sorry Macs.  
+
+You can use RStudio Cloud for free for up to 15 hours per month (for plans and pricing see https://rstudio.cloud/plans/free ).  See the “Guides” tab on the left for help (https://rstudio.cloud/learn/guide).
+
+
+RStudio Cloud has some excellent Primers that I'll point you towards in one of the next modules; feel free to explore them yourself.  See below for details.  
+
+The 15 hr/month cap is pretty small, but RStudio Cloud is an excellent tool to remember in case you have problems installing R or need to test code that's problematic on the desktop version of R.
+
+RStudio Cloud is super stable, but occasionally you can run into problems.  This seems to be most common when you have a slow internet connection.  Try the suggestions in the following Troubleshooting RStudio Cloud chapter.
+
+A cheatsheet for RStudio Cloud can be founder here:
+https://docs.google.com/presentation/d/1Lc0_hLgLUh0KSS5DIEZBUfE4KzeU8kH25nGY4w2kE1o/edit#slide=id.g6061a6c9a3_0_0
+
+## RStudio Cloud Installation Video
+
+This video will walk you through all the steps if you need more details
+
+<!-- https://bookdown.org/yihui/rmarkdown/learnr-videos.html -->
+
+```{r echo = F}
+knitr::include_url("https://youtu.be/9UL1RhdLNs4")
+```
+
+
+## RStudio Cloud Primers
+ 
+Within RStudio Cloud there are a number of interactive primers that will help you get a feel for how R works.  https://rstudio.cloud/learn/primers.  "The Basics" https://rstudio.cloud/learn/primers/1 , "Work with Data" https://rstudio.cloud/learn/primers/2 and "Visualize Data" https://rstudio.cloud/learn/primers/3 cover basic R 101.  There are several others, but these get more into programming with R and working with messy datasets, which may not be what everyone wants to focus on when they first get started.
+
+The “basics” is good for everyone to try.  If you are going to use ggplot2 for making graphs then “Visualize Data” is your next stop.  If you need to be managing raw data and manipulating it into new forms, “Work with data” shows you how to use the dplyr package.
+
+This video will walk you through working with these primers if you need more details
+
+
+```{r echo = F}
+knitr::include_url("https://youtu.be/EgWzchMZhsw")
+```
+
+
+
+
+
+<!-- Do I have a video about using the primers? -->
+<!-- "This video covers how these primers work, and a few of their quirks that could slow you down if you aren't aware." -->
+

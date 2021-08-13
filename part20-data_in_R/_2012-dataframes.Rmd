@@ -1,0 +1,59 @@
+# Data in dataframes
+
+```{r}
+library(Stat2Data)
+```
+
+
+An interesting dataset in `Stat2Data` is `SeaIce`.  Load it with the `data()` command.
+
+```{r}
+data(SeaIce)
+```
+
+`SeaIce` shows 37 years of the area of frozen ice in the arctic, from 1979 to 1993.  The `lynx` data we worked with previously was in a special format that you'll probably rarely encounter ever again.  It was nice to use, however, because it required very little code to plot.  
+SeaIce, however, is a typical R data object in the form of a **dataframe**.  Dataframes are fundamental units of analysis in R.  Most of the data you will load into R and work within R will be in a dataframe.  The have the same basic structure as a spreadsheet, but R keeps them hidden in memory and you have to use commands to explore them.
+
+### Looking at dataframes with `View()`
+
+<!-- Did I mention tabs in Rstudio intro? -->
+
+To get a spreadsheet-like view of a dataframe you can use the `View` command
+
+```{r, eval = F}
+View(SeaIce)
+```
+
+This will bring up the data in a spreadsheet like viewer as a new tab in the script editor, similar to this.
+```{r, echo = F}
+pander::pander(SeaIce[1:10,])
+```
+
+`r emo::ji("warning")` **Note:** Unlike a spreadsheet you cannot edit the data when is called up using `View()` `r emo::ji("warning")`
+
+Like a spreadsheet the data are organized in columns and rows.  Each **column** represents a type of information: 
+
+* `Year`: when data were collected
+* `Extent`: the amount of area within the ice-bound region
+* `Area`: total area of ice, minus any non-ice area (land, melted water)
+* `t`: time point, from 1 (1979) to 15 (1993)
+
+You can think of `Extent` as similar to the size of a country, and `Area` as the actual amount of land in a country minus any lakes.
+
+Each row represents a different year of data; row 1 is the `Extent` and `Area` for 1979, row to is the `Extent` and `Area` for 1980 and so on.
+
+
+### Looking at dataframes in the console
+
+Another common way to examine data is simply type the name of the data in the console and press enter.  This prints it out; however, if its a large data frame this may take up a LOT of room.  (I'll just show an exert here).
+
+<!-- TODO: Insert Image? -->
+
+
+```{r eval = F}
+SeaIce
+```
+
+```{r echo  = F}
+head(SeaIce, 15)
+```

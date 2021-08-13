@@ -1,0 +1,52 @@
+# Troubleshooting R & RStudio Installation
+ 
+Trouble getting R going?  Considering each of these questions will help you troubleshoot things.
+ 
+#### Question 1: Were you able to download R?
+Are there any security-related pop ups from your computer when you are downloading or installing?  See if you can turn these off on your computer, then try again.  In rare cases there may be an administrative firewall preventing download or installation; in this case you need to contact your IT department
+
+#### Question 1.5: Did R download to your downloads folder or another folder on your computer?
+
+Check to make sure that your computer didn't default to a network drive just as OneDrive.  You may be able to install R into this drive, but it will cause problems downstream.  Either re-download or move the installation file onto your hard drive (e.g, the downloads folder).  Also make sure that when you install the program, it's installing to your hard drive.
+
+#### Question 2: Does the base R desktop program work?
+Find the blue R icon on your desktop or the program menu.  If you have trouble use the search function (e.g. Spotlight on a Mac).  Sometimes R itself works fine, but there’s an issue in RStudio talking to R.
+
+#### Question 3: Have you used R previously and didn’t update it?
+RStudio doesn’t always get along with old version of R.  If you used R previously (even if it was just a year or 6 months ago) download and install it again.
+
+#### Question 4: Did you update R but not RStudio?
+Make sure you have the nest versions of both programs.
+
+#### Question 5: Did you download both R and RStudio?
+Make sure you downloaded R, and that the download worked.
+
+#### Question 6: Did you download the correct versions of R/RStudio?
+There are Mac and PC versions of both programs.
+
+#### Question 7: PC Users - did you download the 64 bit version?
+R comes in two flavors, 32 bit and 64 bit.  Usually you want 64 bit.
+
+#### Question 8: Mac Users - did you download the correct version for your OS?
+Scroll down the list of Mac versions to find your correct OS.  If you’re not sure what you’re currently running, type “OS” into the Spotlight search bar.
+
+#### Question 9: Are you getting the error from RStudio “*computer's system information to see whether you need an x86(32-bit) or x64 (64-bit) version of the program, and then contact the software publisher*”
+
+See Question 7.  For more information see the following threads
+
+* community.rstudio.com/t/the-version-of-this-file-is-not-compatible-with-the-version-of-windows-youre-running/28165
+* community.rstudio.com/t/unable-to-select-32-bit-r-version-in-rstudio-v1-2-1047-1-preview/16404
+
+
+#### Question 10: Are you getting any weird pop ups, error messages, or cryptic info from your computer, R, or Rtudio?
+
+Copy and paste the content of the message into a search engine and see if anything comes up.
+
+#### Question 11: Are things STILL not working?
+
+Sorry, this is a rarity - R is usually pretty easy to install.  First, consider using RStudio Cloud or just base R (if it works) while you sort things out, calm down, etc.  Second, do you know anyone who can help?  Teaching Assistant, instructor, friend?  Third, consider posting a question to the RStudio communtiy form: https://community.rstudio.com/ .  When asking for help - especially online - be sure to include the following info:
+
+* How old is your computer?
+* What type of computer (Mac, regular PC laptop, Surface tablet, etc)
+* The version of your operating system (OS).  On Macs, type “OS” into the SpotLight search bar and it will tell you the OS name and version. 
+* Screen grabs or the full text of any error messages

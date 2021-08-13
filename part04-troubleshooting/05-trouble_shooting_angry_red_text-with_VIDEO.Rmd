@@ -1,0 +1,10 @@
+# Video - Angry red text in R (don't panic!)
+
+R often shows you things in red text and issues "warnings."  This video explains what this means and why not to worry.
+
+https://youtu.be/1G6ez7qe9uI
+
+
+```{r, echo = F}
+knitr::include_url("https://youtu.be/1G6ez7qe9uI")
+```

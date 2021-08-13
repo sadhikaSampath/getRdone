@@ -1,0 +1,36 @@
+# Interactive resources for learning R
+ 
+Below is information about interactive tutorials that guide you step by step through introductory R sessions.
+ 
+## RStudio Cloud Primers (FREE! Total beginners).
+ 
+The RStudio cloud guided primers are probably the best intros out there right now.  Their only deficiency is that there aren't more at a really basic level.  They’ll guide you step by step through basic R commands via a special web interface.
+https://rstudio.cloud/learn/primers
+ 
+The “basics” is good for everyone to try.  If you are going to use ggplot2 for making graphs then “Visualize Data” is your next stop.  If you need to be managing raw data and manipulating it into new forms, “Work with data” shows you how to use the dplyr package.
+ 
+## swirl Interactive Primers
+ 
+swirl is a system for running tutorials within the R console.  R basically asks you questions and you type the answer.  Information about downloading and using swirl can be found here: https://swirlstats.com/students.html
+ 
+### swirl quickstart:
+
+In the R console run these commands:
+```{r, eval = F}
+install.packages("swirl")
+library("swirl")
+swirl::install_course("R Programming")
+swirl::install_course("The R Programming Environment")
+```
+
+
+To get started type:
+```{r, eval = F}
+swirl()
+```
+
+
+swirl will guide you through the reset.  Choose one of the R Programming tutorials.
+A cheatsheet to swirl commands and other info can be found here:
+https://docs.google.com/presentation/d/12cNq9VYEUFzzzQkNmRF2PgllW05-tVqoEux26jfygWw/edit?usp=sharing
+

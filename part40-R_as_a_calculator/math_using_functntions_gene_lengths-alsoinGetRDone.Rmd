@@ -1,0 +1,104 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Doing Math in R with functions
+
+* R can do everything a scientific calculator or spreadsheet can do.  This includes basic functions like +, - , /, sqrt, etc, and basic functions like mean(), median(), sd() for the standard deviation and var() for the variance.
+
+* In general in this course we will focus on having do R most of the calculations for our stats.  However, its important to understand some of the underlying math.
+
+* Today, to practice doing math in R and to learn about basic statsitcal functions, we'll do calcualtions of the mean, variance, "sum of squares", and standard devition "by hand" in R.  We'll then compare them to the output R produces.
+
+```{r, echo = T}
+library(compbio4all)
+data(genes_hpc)
+```
+
+Put gene lengths in vector
+
+```{r}
+gene_lengths <- genes_hpc$length
+```
+
+
+
+# Introduction
+
+* The data we'll use for this is discussed in Chapter 4 of Whitlock & Schluter.  The author's accessed information on the human genome about the length of every gene that has been identified.  This results in a list of 
+`r dim(genes_hpc)[1]` genes and their length in DNA bases pairs (A, T, C and Gs).
+
+* These genes vary in length from `r min(genes_hpc$length, na.rm = T)`  bp to `r max(genes_hpc$length)` 
+
+* mean = `r mean(genes_hpc$length)` bp 
+
+* median = `r median(genes_hpc$length)` bp.
+
+
+
+
+## The basic math stuff in R
+
+
+
+The summed length of all the genes (not meaninful on its own)
+```{r}
+sum(gene_lengths)
+```
+
+
+The mean gene length
+```{r}
+mean(gene_lengths)
+```
+
+```{r}
+min(gene_lengths)
+```
+
+```{r}
+max(gene_lengths)
+```
+
+
+The varinace (var)
+```{r}
+var(gene_lengths)
+```
+
+
+
+
+The standard deviation (sd)
+```{r}
+sd(gene_lengths)
+```
+
+
+
+
+Note that the standard deviation is just the square root of the of the variance
+```{r}
+#SD using R's function
+sd(gene_lengths)
+
+#SD as the sqrt of the variance
+sqrt(var(gene_lengths))
+
+```
+
+
+
+
+The min, max, etc.
+```{r}
+min(gene_lengths)
+max(gene_lengths)
+sum(gene_lengths)
+```
+
+
+
+
+

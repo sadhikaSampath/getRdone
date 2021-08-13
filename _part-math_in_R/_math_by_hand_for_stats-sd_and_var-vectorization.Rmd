@@ -1,0 +1,213 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# Doing math for stats by hand: standard deviation
+
+"_hpc" stands for "Homo sapiens, protei-coding"
+
+```{r, echo = T}
+library(compbio4all)
+data(genes_hpc)
+```
+
+Put gene lengths in vector
+
+```{r}
+gene_lengths <- genes_hpc$length
+```
+
+
+
+
+
+## Calcualting variance & standard deviation by hand, step by step
+
+Variance and standard deviation are a fundamental quantity in statistics.
+
+ 
+
+We'll step through each part ofthe calculation
+
+## "Deviations" between the mean and each observation
+
+
+
+Calculate the difference between each observation and the mean of all observation that you calculated above.
+
+
+
+Note that here, R is doing math on a set of 10 numbers in the object "genes_hpc" and a single number, the mean, in "my.mean"
+
+```{r}
+
+Yi.deviations <- gene_lengths-mean(gene_lengths)
+
+```
+
+
+
+
+
+## Start making a dataframe (df)
+
+
+
+We can keep track of the math by making a spreadsheet-like object in R called a matrix or dataframe using the cbind() command.  cbind() means "column bind"
+
+```{r}
+my.df <- cbind(gene_lengths,      #original list of gene lengths
+               Yi.deviations) #
+
+```
+
+
+Look at the matrix.  Note that some of the deviations are positive and some are negative.
+
+```{r, eval = F}
+my.df
+```
+
+
+# Calculate the "Squared deviations" between the mean and each observation
+
+Take your set of deviations and square them using "^2"
+
+
+Here, we've done math on a whole list of numbers at the same time.
+
+```{r}
+Yi.deviations.square <- Yi.deviations^2
+
+```
+
+
+
+Squaring is key b/c it makes deviations greater than the mean and less than the mean equivalent.  That is, we go from "deviations" that are positive and negative to "squared deviations" that are all negative.  
+
+
+
+A the square deviations to the dataframe
+
+
+```{r}
+my.df <- cbind(my.df, Yi.deviations.square)
+
+```
+
+
+
+
+Look at your expanding matrix
+
+```{r eval = F}
+my.df
+```
+
+
+
+
+# Sum of squares between the mean and each deviation
+
+we can now calcualte the "sum of square deviations" or the "sum of squares".  This is the numerator (the thing on top) in the variance and standard deviation equations.
+
+```{r}
+my.sum.of.squares<- sum(Yi.deviations.square)
+```
+
+
+
+This is a rather big number and I'm glad we don't have to calcualte it by hand : )
+
+```{r eval = F}
+my.sum.of.squares
+```
+
+
+
+
+# And now...the variance
+
+
+
+We can now use the sum of squares(SS) to calcuate the variance. This is is the SS divided by the sample size minus one.  Recall that we calcualted the sample size above and put it in an object called "my.N".  We subtract n to get what is known as the "Degrees of freedom".  More on this later
+
+
+
+```{r}
+#The sample size
+my.N <- length(gene_lengths)
+
+#degrees of freedom
+dfs <- my.N - 1
+
+#The var
+my.var <- my.sum.of.squares/dfs
+
+#Could also do it more directly
+my.var <- my.sum.of.squares/(my.N - 1)
+
+
+```
+
+
+
+
+# And now...the standard deviation
+
+The standard deviation is just the square root of the variance.
+
+
+
+\[\sigma = \sqrt{\frac{\sum\limits_{i=1}^{n} \left(x_{i} - \bar{x}\right)^{2}} {n-1}}\]
+
+
+
+
+
+```{r}
+my.sd <- sqrt(my.var)
+```
+
+
+
+We can check if our results are the same as R
+
+```{r}
+#Variance
+var(gene_lengths)
+my.var
+
+#stdev
+sd(gene_lengths)
+my.sd
+
+```
+
+
+We can check this also like this usig "=="
+
+```{r}
+#Variance
+var(gene_lengths) == my.var
+
+#stdev
+sd(gene_lengths) == my.sd
+```
+
+
+
+# The standard error (SE)
+
+
+
+The standard error is a fundamental quantity in stats.  It is used as a measure of variation in sample data and is useful for making error bars for means.  Is is the standard deviation divided by the square root of the sample size.
+
+```{r}
+my.se <- my.sd/sqrt(my.N)
+```
+
+

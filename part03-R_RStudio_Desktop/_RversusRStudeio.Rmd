@@ -1,0 +1,16 @@
+# R versus RStudio
+
+has image: 
+<!-- https://canvas.pitt.edu/courses/45284/pages/r-versus-rstudio?module_item_id=1261492 -->
+
+
+Important note 2: People don’t actually use the base R program! 
+
+After you install R, icons for it will show up on your computer in the usual places.  There’s actually rarely any reason to click on these - instead, you’ll use another program called RStudio, which you'll download in the next step. 
+
+But first, read this RStudio forum post (Links to an external site.) by  @dataandme (Links to an external site.) for a quick breakdown on R versus RStudio
+
+https://community.rstudio.com/t/differentiating-r-from-rstudio/8009?u=mara
+
+
+Averick, M.  2018.  Differentiating R from RStudio.  https://community.rstudio.com/t/differentiating-r-from-rstudio/8009?u=mara (Links to an external site.)

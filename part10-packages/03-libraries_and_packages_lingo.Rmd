@@ -1,0 +1,14 @@
+# "Libaries" versus "packages" in in R
+
+install.packages() downloads the package to your computer from CRAN, the official R website
+
+library() loads things that have been downloaded into your active R sessions.
+You typically have to run library() on different packages every time you run R.  
+
+devtools is an R package with provides tools for managing and downloading R packages; it contains the function install_github()
+
+install_github() downloads unofficial  packages from github
+You only typically run install.packages() or install_github() every once in a while, first when you start out using R and then later when you need updates.  We'll hopefully only ever have to do install.packages("devtools") once.  We'll have to do install.packages("dayoff") most weeks b/c I'm always updating.
+
+Example
+So, to install a package I’m developing on GitHub called dayoff, you'll have to load devtools using library(devtools), then download dayoff with install_github(...), then load dayoff into your current R session with library(dayoff).  If you restart R sometime during class, you'll just have to do library(dayoff) to get rolling again.  Normally I'll include most of this code in a script or as a reminder, but its good to be familiar with it.

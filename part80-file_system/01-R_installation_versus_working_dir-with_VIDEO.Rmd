@@ -1,0 +1,42 @@
+# R's Installation directory and "working directory"
+
+When using R there are several levels of where software, files, and R's working memory are located and organized.
+
+First, R is a program that lives on your hard drive.  Occasionally it may get installed someplace we don't want.  We can check where R is located using the `R.home()` function.  This isn't a commonly used function but is useful for troubleshooting problems.
+
+Second, when R is running it has a **working directory** where any files you save will be stored.  You can check where your working directory is using `get.wd()`.    When you get started, you don't have to worry much about this, but eventually, it will be *very* important to make sure you know where your files are going so you can find them back!  Using **R Projects** managed with RStudio is very useful when the time comes to do this.
+
+Third, often in R we create **objects** (sometimes called **variables**) which contain information.  These are made using R's assignment operator: `<-`, which is a "less than" sign and a dash (or an alligator eating a jumping fish, whichever you prefer).  To assign something to R's working memory I do this
+
+```{r}
+my.object <- "something"
+```
+
+
+I can see everything I've assigned to R's working memory using the command `ls()`.
+```{r}
+ls()
+```
+
+
+
+
+This video covers similar topics
+
+```{r, echo = F}
+knitr::include_url("https://youtu.be/jRT8zOiQtsE")
+```
+
+The code used in the video is below.  You can just copy and paste it into your R console if you have any trouble.
+
+```{r, eval = F}
+my.name <- "Your name" #character string
+is(my.name)
+my.name
+home <- R.home()
+home
+wd <- getwd()
+wd
+ls()
+```
+

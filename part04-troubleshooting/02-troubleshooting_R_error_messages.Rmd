@@ -1,0 +1,45 @@
+# Troubleshooting R error messages
+ 
+Once R is running, it tells you something is not working correctly 4 ways
+
+1. By acting weird but not telling you something is wrong
+1. Warning messages
+1. Error messages
+1. Crashing
+ 
+Note that there is a BIG difference between a “**Warning**” (usually can be ignored) and an “**Error**”, which is a problem that needs to be addressed.  Both occur in angry looking red text, but their consequences are VERY different.
+ 
+## Acting weird but not telling you something is wrong
+
+Fairly common.  With practice you’ll figure this out.  Some of the info below will help you with this. ( Specific information to be added later)
+
+## Warning messages
+
+Again, warnings are very different than errors.  R loves to give you unnecessary warnings in what appears to be angry red-text.  This is usually nothing to worry about.  See here for more info: 
+https://bit.ly/Rwarningsvid
+
+## Error messages
+
+These can be problematic, though often R won’t crash.   Some of the info below will help you with this. ( Specific information to be added later)
+ 
+## Crashes
+
+R and RStudio are very stable.  Often updating R and RStudio will fix this, or some other major underlying package.  Some of the info below will help you with this. ( Specific information to be added later)
+ 
+ 
+See this thread for ideas for troubleshooting R messages and other R shenanigans.
+https://twitter.com/lobrowR/status/1179822382782935040?s=20
+ 
+ 
+ 
+For advanced situations, you may want to see if code works in an older version of R
+Changing version of R run by RStudio
+https://support.rstudio.com/hc/en-us/articles/200486138-Changing-R-versions-for-RStudio-desktop
+
+R switch for Mac
+https://mac.r-project.org/
+
+Issues with C/Python libraries
+“Symbol not found“
+https://github.com/rstudio/tensorflow/issues/69
+
