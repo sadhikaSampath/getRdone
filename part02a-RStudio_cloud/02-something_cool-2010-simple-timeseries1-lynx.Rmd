@@ -4,25 +4,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-# (BOOK) Getting started with R {-}
-
-### {-}
-
-**NEW  text**
-
-In Book 2 we'll get started using R.  We'll focus on jumping in with some simple examples that tell interesting scientific stories so we can get a sense for the power of R.  Later, we'll dig deeper - bit by bit - not the details.  Like any language R is a versatile tool for communication, but has conventions, quirks, idioms and dialects that new users have to become comfortable with.  In general my goal in Book 2 will be to help you get a general sense of R, let you see a bit of the wild -- and overwhelming -- world of possibilities for how R is written, and outline the more specific aspects I'll use to help facilitate learning. 
-
-We'll have three specific goals:
-
-1. Run some initial, simple commands in R to see how it works.
-1. Take a broad tour of the wide world of R so see the many faces of R code you may encounter in the wild.
-1. Highlight the particular way coding conventions and idioms of R I'll use.
-1. Introduce briefly some of the different ways you can get data into R.
-
-If you find yourself getting confused or overwhelmed don't panic  A goal of this section is to prevent *future* confusion by giving you a sense for the many different ways R can be written and that you will eventually encounter on the internet or other books, and to contrast them with what you'll use in this book.  Here, I've worked to keep things consistent and to either use the simplest methods to accomplish the goal or to carefully break down hard tasks or concepts so you can master them.  Once you start typing into your search engine "R code ..." you will get MANY different types of code which you may not yet be prepared to work with.  
-
-
-
 
 # Hello R!  A first encounter with data visualization
 
