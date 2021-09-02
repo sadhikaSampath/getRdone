@@ -7,7 +7,6 @@ bookdown::gitbook:
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 #    download: ["pdf", "epub"]
-    view: https://github.com/brouwern/BIOSCI_1540/blob/master/%s
 #    download: ["epub"]
 # bookdown::pdf_book:
 #   includes:
